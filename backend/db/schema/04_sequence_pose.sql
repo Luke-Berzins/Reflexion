@@ -6,5 +6,5 @@ CREATE TABLE sequence_pose (
   id SERIAL PRIMARY KEY NOT NULL,
   sequence_id INTEGER REFERENCES sequences(id),
   pose_id INTEGER REFERENCES poses(id),
-  postion INT NOT NULL
+  position INT NOT NULL
 );
