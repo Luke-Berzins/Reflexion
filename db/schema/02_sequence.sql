@@ -1,9 +1,8 @@
 -- Drop and recreate Users table (Example)
 
-DROP TABLE IF EXISTS users CASCADE;
-CREATE TABLE sequence (
+DROP TABLE IF EXISTS sequences CASCADE;
+CREATE TABLE sequences (
   id SERIAL PRIMARY KEY NOT NULL,
-  sequence_id INTEGER REFERENCES sequence(id),
-  pose_id INTEGER REFERENCES pose(id),
-  order INTEGER NOT NULL
+  sequence_id INTEGER REFERENCES sequences(id),
+  name VARCHAR(255) NOT NULL
 );
