@@ -11,6 +11,8 @@ import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
+import Session from './components/Session';
+import Builder from './components/Builder';
 
 function App() {
   return (
@@ -18,18 +20,30 @@ function App() {
       <div>
         <nav>
           <ul>
+          <li>
+              <Link to="/">Home</Link>
+            </li>
             <li>
               <Link to="/login">Login</Link>
             </li>
             <li>
               <Link to="/register">Register</Link>
             </li>
+            <li>
+              <Link to="/builder">Builder</Link>
+            </li>
+            <li>
+              <Link to="/session">Session</Link>
+            </li>
           </ul>
         </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
+          <Route path="/builder">
+            <Builder />
+          </Route>
+          <Route path="/session">
+            <Session />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
