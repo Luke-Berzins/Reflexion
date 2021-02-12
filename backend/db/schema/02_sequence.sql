@@ -3,6 +3,6 @@
 DROP TABLE IF EXISTS sequences CASCADE;
 CREATE TABLE sequences (
   id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id),
+  sequence_id INTEGER REFERENCES sequences(id),
   name VARCHAR(255) NOT NULL
 );
