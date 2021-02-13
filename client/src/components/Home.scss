@@ -1,6 +1,44 @@
-.bg_image{
-  background-image: url('../img/bg-masthead.png');
+// .bg_image{
+//   background-image: url('../img/bg-masthead.png');
+//   background-size: cover;
+//   height: 100vh;
+//   color: #f5f5f5;
+// }
+
+@mixin bkg-img-transition( $bkg1, $bkg2, $transTime: 4s ){
+  position: relative;
+  z-index: 100;
+  &:before, &:after {
+    background-size: cover;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    transition: opacity $transTime;
+  }
+  &:before {
+    // z-index: -101;
+    background-image: url("#{$bkg1}");
+  }
+  &:after {
+    // z-index: -100;
+    opacity: 0;
+    background-image: url("#{$bkg2}");
+  }
+  &:hover {
+     &:after{
+       opacity: 1;
+     }
+  }
+}
+
+#bg_image {
+  @include bkg-img-transition("../img/bg-masthead-1.png","../img/bg-masthead.png");
   background-size: cover;
-  height: 100vh;
-  color: #f5f5f5;
+  width:119rem;
+  height:65rem;
+  // line-height:300px;
+  cursor:pointer;
 }
