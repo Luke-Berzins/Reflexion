@@ -1,6 +1,12 @@
+import ReactPlayer from "react-player";
+
 export default function Session(props) {
 
   return (
-    <h1>I AM Session</h1>
-  )
+    <div className="video-embed">
+      <ReactPlayer
+        url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+      />
+    </div>
+  );
 }
