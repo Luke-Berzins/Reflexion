@@ -13,30 +13,13 @@ import Register from './components/Register';
 import Home from './components/Home';
 import Session from './components/Session';
 import Builder from './components/Builder';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-          <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-            <li>
-              <Link to="/builder">Builder</Link>
-            </li>
-            <li>
-              <Link to="/session">Session</Link>
-            </li>
-          </ul>
-        </nav>
+        <Nav />
         <Switch>
           <Route path="/builder">
             <Builder />
@@ -53,7 +36,6 @@ function App() {
           <Route path="/">
             <Home />
           </Route>
-
         </Switch>
       </div>
     </Router>
