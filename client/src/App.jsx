@@ -14,6 +14,7 @@ import Home from './components/Home';
 import Session from './components/Session';
 import Builder from './components/Builder';
 import Nav from './components/Nav';
+import About from './components/About';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
       <div>
         <Nav />
         <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
           <Route path="/builder">
             <Builder />
           </Route>
