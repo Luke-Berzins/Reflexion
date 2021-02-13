@@ -13,11 +13,13 @@ import Register from './components/Register';
 import Home from './components/Home';
 import Session from './components/Session';
 import Builder from './components/Builder';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <Router>
       <div>
+<<<<<<< HEAD
         <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
           <div className="container">
             <a className="navbar-brand js-scroll-trigger" href="#page-top">Reflexion</a>
@@ -36,6 +38,9 @@ function App() {
             </div>
           </div>
         </nav>
+=======
+        <Nav />
+>>>>>>> 1f3107b819746b5ca7cfe6ceef481376066ed299
         <Switch>
           <Route path="/builder">
             <Builder />
@@ -52,7 +57,6 @@ function App() {
           <Route path="/">
             <Home />
           </Route>
-
         </Switch>
       </div>
     </Router>
