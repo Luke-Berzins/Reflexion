@@ -13,3 +13,6 @@ VALUES ('Virabhadrasana II (Warrior 2)', '../img/icons/virabhadrasana2.png', 'vi
 INSERT INTO poses (name, icon, video, description, overlay)
 VALUES ('Trikonasana (Triangle Pose)', '../img/icons/trikonasana.png', 'video_url', 'Trikonasana primarily stretches the hips and obliques. By placing your head and torso perpendicular to their normal alignment, trikonasana also doubles as an excellent balance challenge.', '../img/overlays/trikonasana.png');
 
+INSERT INTO poses (name, icon, video, description, overlay)
+VALUES ('Ardha Chandrasana (Half Moon Pose)', '../img/icons/chandrasana.png', 'video_url', 'Challenge yourself with Ardha Chandrasana (Half Moon), a pose that takes your balance to its limit while stretching the hamstrings and improving hip stability.', '../img/overlays/chandrasana.png');
+
