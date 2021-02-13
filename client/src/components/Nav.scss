@@ -5,6 +5,7 @@
 }
 
 .navbar {
+  background: transparent;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -75,3 +76,4 @@
 .navbar-toggler:hover, .navbar-toggler:focus {
   text-decoration: none;
 }
+

@@ -17,6 +17,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "react-webcam": "^5.2.3",
+<<<<<<< HEAD
+=======
+    "sass": "^1.32.7",
+>>>>>>> feature/Mahsa
     "web-vitals": "^1.1.0"
   },
   "scripts": {
