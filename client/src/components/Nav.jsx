@@ -8,7 +8,7 @@ import {
 export default function Nav(props) {
 
   return (
-    <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-light" id="mainNav">
           <div className="container">
             <Link className="navbar-brand js-scroll-trigger" to="/">Reflexion</Link>
             <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
