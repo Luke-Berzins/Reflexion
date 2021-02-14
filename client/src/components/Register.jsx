@@ -30,28 +30,28 @@ export default function Register(props) {
                           </div>
                           <form action="/register" method="post">
                             <div className="form-group last mb-4">
-                              <label for="first_name">First Name:</label>
+                              <label for="first_name"><b>First Name:</b></label>
                               <input name="first_name" type="name" placeholder="John" className="form-control" id="name" />
                             </div>
                             <div className="form-group last mb-4">
-                              <label for="last_name">Last Name:</label>
+                              <label for="last_name"><b>Last Name:</b></label>
                               <input name="last_name" type="name" placeholder="Smith" className="form-control" id="name" />
                             </div>
                             <div className="form-group first">
-                              <label for="email">Email:</label>
+                              <label for="email"><b>Email:</b></label>
                               <input name="email" type="email" placeholder="example@example.com" className="form-control" id="email" />
                             </div>
                             <div className="form-group last mb-4">
-                              <label for="password">Password:</label>
+                              <label for="password"><b>Password:</b></label>
                               <input name="password" type="password" placeholder="password" className="form-control" id="password" />
                             </div>
 
                             <div className="d-flex mb-5 align-items-center">
-                              <label className="control control--checkbox mb-0"><span className="caption">Remember me</span>
+                              <label className="control control--checkbox mb-0"><span className="caption"><b>Remember me</b></span>
                                 <input type="checkbox" checked="checked"/>
                                 <div className="control__indicator"></div>
                               </label>
-                              <span className="ml-auto"><a href="#" className="forgot-pass">Forgot Password</a></span>
+                              <span className="ml-auto"><a href="#" className="forgot-pass"><b>Forgot Password</b></a></span>
                             </div>
 
                             <input type="submit" value="Register" className="btn btn-pill text-white btn-block btn-primary" />
