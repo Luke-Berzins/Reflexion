@@ -6,12 +6,15 @@
 
 .navbar {
   background: transparent;
-  position: relative;
+  position: sticky;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+}
+.navbar.active {
+  background: linear-gradient(90deg, rgb(66, 2, 194) 0%, rgb(0, 78, 194) 100%);
 }
 
 .nav-link {
