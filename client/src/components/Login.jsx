@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form"
 import { getUser } from "../helpers/selectors";
-import background from '../img/sunrise.mp4'
+import background from '../img/sunset.mp4'
 
 import "./Login.scss"
 
