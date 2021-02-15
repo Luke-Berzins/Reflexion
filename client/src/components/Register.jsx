@@ -1,4 +1,5 @@
 import "./Register.scss"
+import background from '../img/clouds.mp4'
 
 export default function Register(props) {
 
@@ -12,7 +13,7 @@ export default function Register(props) {
   return (
     <div>
       <video autoPlay loop muted id='video'>
-        <source src='https://assets.mixkit.co/videos/preview/mixkit-clouds-and-blue-sky-2408-large.mp4' type='video/mp4' />
+        <source src={background} type='video/mp4' />
       </video>
       <div id='container'>
         <div id='register'>
