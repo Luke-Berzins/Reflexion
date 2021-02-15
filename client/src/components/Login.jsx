@@ -16,7 +16,7 @@ export default function Login(props) {
   }
 
   return (
-    <div id="register">
+    <div id="login">
       <div className="content">
           <div className="container">
             <div className="row justify-content-center">
