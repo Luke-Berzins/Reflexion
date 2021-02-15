@@ -32,7 +32,7 @@ export default function Login(props) {
                     <div className="col-md-12">
                       <div className="form-block">
                           <div className="mb-4">
-                          <h3>Log In to <strong>Reflexion</strong></h3>
+                          <h3>Begin your <strong>Reflexion</strong></h3>
                           <p className="mb-4"></p>
                         </div>
                         {/* <!-- register form--> */}
@@ -48,11 +48,10 @@ export default function Login(props) {
                           </div>
 
                           <div className="d-flex mb-5 align-items-center">
-                            <label className="control control--checkbox mb-0"><span className="caption">Remember me</span>
-                              <input type="checkbox" checked="checked"/>
+                            <label className="control control--checkbox mb-0"><span className="caption">Remember me </span>
+                              <input type="checkbox" checked="checked"/><br></br>
                               <div className="control__indicator"></div>
                             </label>
-                            <span className="ml-auto"><a href="#" className="forgot-pass">Forgot Password</a></span>
                           </div>
 
                           <input type="submit" value="Log In" className="btn btn-pill text-white btn-block btn-primary" />
