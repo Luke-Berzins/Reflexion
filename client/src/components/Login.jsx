@@ -1,16 +1,44 @@
 import { useForm } from "react-hook-form"
-import { getUser } from "../helpers/selectors";
 import background from '../img/sunset.mp4'
 
 import "./Login.scss"
-
+import { useCookies } from 'react-cookie';
+import axios from "axios";
 
 
 export default function Login(props) {
-  const {register, handleSubmit, errors} = useForm();
+  const [cookies, setCookie] = useCookies(['name', 'id']);
+  const {register, handleSubmit} = useForm();
 
   const onSubmit = (data) => {
-    getUser(data.email, data.password)
+    let email = data.email;
+    let password = data.password;
+    Promise.all([
+      axios.get("/api/users"),
+    ]).then((all) => {
+      const users = all[0].data.users
+      const filteredUser = users.filter(filteredUser => filteredUser.email === email)[0]
+      if (!filteredUser) {
+        console.log("wrong username")
+        return;
+      }
+    if (filteredUser.password === password) {
+    console.log(filteredUser, "in")
+    setCookie('name', filteredUser.firstname, { path: '/' });
+    setCookie('id', filteredUser.id, { path: '/' });
+    window.location = "/builder"
+    return filteredUser;
+  } else if (filteredUser && filteredUser.password !== password) {
+    console.log("wrong password")
+    return null
+  }
+  console.log("wront")
+  return null;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
   }
 
   return (
@@ -18,30 +46,30 @@ export default function Login(props) {
       <video autoPlay loop muted id='video'>
         <source src={background} type='video/mp4' />
       </video>
+
       <div id="login">
         <div className="content">
-            <div className="container">
-              <div className="row justify-content-center">
-                <div className="col-md-6 contents">
-                  <div className="row justify-content-center">
-                    <span className="border">
-                    <div className="col-md-12">
-                      <div className="form-block">
-                          <div className="mb-4">
-                          <h3>Begin your <strong>Reflexion</strong></h3>
-                          <p className="mb-4"></p>
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-md-6 contents">
+                <div className="row justify-content-center">
+                  <span className="border">
+                  <div className="col-md-12">
+                    <div className="form-block">
+                        <div className="mb-4">
+                        <h3>Begin Your <strong>Reflexion</strong></h3>
+                        <p className="mb-4"></p>
+                      </div>
+                      {/* <!-- register form--> */}
+                      <form name='name' onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-group first">
+                          <label for="email"><b>Email:</b></label>
+                          <input name="email" type="text" className="form-control" id="username" ref={ register }/>
                         </div>
-                        {/* <!-- register form--> */}
-                        <form name='name' onSubmit={handleSubmit(onSubmit)}>
-                          <div className="form-group first">
-                            <label for="email"><b>Email:</b></label>
-                            <input name="email" type="text" className="form-control" id="username" ref={ register }/>
-                          </div>
-
-                          <div className="form-group last mb-4">
-                            <label for="password"><b>Password:</b></label>
-                            <input name="password" type="password" className="form-control" id="password" ref={ register }/>
-                          </div>
+                        <div className="form-group last mb-4">
+                          <label for="password"><b>Password:</b></label>
+                          <input name="password" type="password" className="form-control" id="password" ref={ register }/>
+                        </div>
 
                           <div className="d-flex mb-5 align-items-center">
                             <label className="control control--checkbox mb-0"><span className="caption">Remember me </span>
@@ -88,8 +116,9 @@ export default function Login(props) {
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </div>
-    </div>
+
   )
 }

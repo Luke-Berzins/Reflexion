@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useCookies } from 'react-cookie';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +17,7 @@ import Nav from './components/Nav';
 import About from './components/About';
 
 function App() {
+  const [cookies, setCookie] = useCookies(['name']);
   return (
     <Router>
       <div>
