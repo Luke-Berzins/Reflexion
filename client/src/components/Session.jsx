@@ -17,10 +17,9 @@ export default function Session(props) {
     <div id="video-container">
 
       <Webcam
-        audio={ false }
+        audio={ true }
         width={ vw }
         height={ vh }
-        videoConstraints={ videoConstraints }
       />
 
       {/* <div className="video-embed">
