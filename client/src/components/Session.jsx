@@ -13,11 +13,12 @@ export default function Session(props) {
   };
 
   return (
+
     <div id="video-container">
 
       <center>
       <Webcam
-        style = { { width: 'auto', height: '99vh' } }
+        style = { { width: 'auto', height: '99vh', } }
         mirrored         = { true }
         audio            = { false }
         width            = { 1280 }
@@ -32,5 +33,6 @@ export default function Session(props) {
         />
       </div> */}
     </div>
+
   );
 }
