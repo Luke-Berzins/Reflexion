@@ -2,6 +2,8 @@
 import React from "react";
 import Webcam from "react-webcam"
 
+import "./Session.scss"
+
 export default function Session(props) {
 
   const videoConstraints = {
@@ -25,7 +27,6 @@ export default function Session(props) {
       </center>
 
       {/* <div className="video-embed">
-
         <ReactPlayer
           url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
         />
