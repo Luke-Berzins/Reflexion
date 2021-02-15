@@ -22,3 +22,12 @@
   height:56rem;
   font-family: 'Raleway', sans-serif !important;
 }
+.border {
+  background-color: white;
+  opacity: 0.75;
+  padding: 10px;
+}
+.social-login {
+  display: flex;
+  justify-content: space-evenly;
+}
