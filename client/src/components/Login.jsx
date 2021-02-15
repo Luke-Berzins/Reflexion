@@ -16,7 +16,7 @@ export default function Login(props) {
   }
 
   return (
-    <div id="register">
+    <div id="login">
       <div className="content">
           <div className="container">
             <div className="row justify-content-center">
@@ -41,12 +41,12 @@ export default function Login(props) {
                           <input name="password" type="password" className="form-control" id="password" ref={ register }/>
                         </div>
 
-                        <div className="d-flex mb-5 align-items-center">
-                          <label className="control control--checkbox mb-0"><span className="caption">Remember me</span>
+                        <div className="d-sm-flex p-2 mb-5">
+                          <label className="control control--checkbox mb-0"><span className="caption">Remember me </span>
                             <input type="checkbox" checked="checked"/>
                             <div className="control__indicator"></div>
                           </label>
-                          <span className="ml-auto"><a href="#" className="forgot-pass">Forgot Password</a></span>
+                          <span className="ml-auto"><a href="#" className="forgot-pass"><b>Forgot Password</b></a></span>
                         </div>
 
                         <input type="submit" value="Log In" className="btn btn-pill text-white btn-block btn-primary" />
