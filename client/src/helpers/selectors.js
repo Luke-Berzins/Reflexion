@@ -11,16 +11,20 @@ export function getUser(email, password) {
         console.log("wrong username")
         return;
       }
-  if (filteredUser.password === password) {
-    console.log(filteredUser)
-    window.location = "/builder"
+    if (filteredUser.password === password) {
+    console.log(filteredUser, "in")
+    // window.location = "/builder"
     return filteredUser;
-  } else if (filteredUser) {
+  } else if (filteredUser && filteredUser.password !== password) {
     console.log("wrong password")
     return null
   }
-    })
+  console.log("wront")
   return null;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 }
 
 export function registerUser(user) {
@@ -30,7 +34,8 @@ export function registerUser(user) {
       firstname: user.firstname,
       lastname: user.lastname
   }).then(
-    window.location = "/builder"
+    // window.location = "/builder"
+    console.log("hiiiiiiii")
   )
   .catch(function (error) {
     console.log(error);
