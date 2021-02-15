@@ -4,20 +4,23 @@ import Webcam from "react-webcam"
 
 export default function Session(props) {
 
+  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 7;
+
   const videoConstraints = {
-    width: { min: 1280 },
-    height: { min: 720 },
+    width: { min: vw },
+    height: { min: vh },
   };
 
 
   return (
-    <div id="container">
+    <div id="video-container">
 
       <Webcam
-        audio={false}
-        width={1920}
-        height={1080}
-        videoConstraints={videoConstraints}
+        audio={ false }
+        width={ vw }
+        height={ vh }
+        videoConstraints={ videoConstraints }
       />
 
       {/* <div className="video-embed">
