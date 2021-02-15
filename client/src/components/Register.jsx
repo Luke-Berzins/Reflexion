@@ -1,4 +1,6 @@
 import "./Register.scss"
+import { useForm } from "react-hook-form"
+import { registerUser } from "../helpers/selectors";
 
 export default function Register(props) {
 
@@ -9,6 +11,14 @@ export default function Register(props) {
   //     </video>
   //   </div>
   // )
+
+  const {register, handleSubmit, errors} = useForm();
+
+  const onSubmit = (data) => {
+    registerUser(data)
+  }
+
+
   return (
     <div>
       <video autoPlay loop muted id='video'>
@@ -28,27 +38,32 @@ export default function Register(props) {
                             <h3>Start your <strong>Reflexion</strong></h3>
                             <p className="mb-4"></p>
                           </div>
-                          <form action="/register" method="post">
+                          <form onSubmit={ handleSubmit(onSubmit)} >
                             <div className="form-group last mb-4">
-                              <label for="first_name"><b>First Name:</b></label>
-                              <input name="first_name" type="name" className="form-control" id="name" />
+                              <label for="firstname"><b>First Name:</b></label>
+                              <input name="firstname" type="name" className="form-control" id="name"
+                               ref={ register } />
                             </div>
                             <div className="form-group last mb-4">
-                              <label for="last_name"><b>Last Name:</b></label>
-                              <input name="last_name" type="name" className="form-control" id="name" />
+                              <label for="lastname"><b>Last Name:</b></label>
+                              <input name="lastname" type="name" className="form-control" id="name"
+                               ref={ register } />
                             </div>
                             <div className="form-group first">
                               <label for="email"><b>Email:</b></label>
-                              <input name="email" type="email" className="form-control" id="email" />
+                              <input name="email" type="email" className="form-control" id="email"
+                              ref={ register } />
                             </div>
                             <div className="form-group last mb-4">
                               <label for="password"><b>Password:</b></label>
-                              <input name="password" type="password" className="form-control" id="password" />
+                              <input name="password" type="password" className="form-control" id="password"
+                              ref={ register } />
                             </div>
 
                             <div className="d-flex mb-5 align-items-center">
                               <label className="control control--checkbox mb-0"><span className="caption"><b>Remember me  </b></span>
-                                <input type="checkbox" checked="checked"/>
+                                <input type="checkbox" checked="checked"
+                                />
                                 <div className="control__indicator"></div>
                               </label>
 
