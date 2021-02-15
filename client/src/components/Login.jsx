@@ -9,7 +9,7 @@ import axios from "axios";
 
 export default function Login(props) {
   const [cookies, setCookie] = useCookies(['name', 'id']);
-  const {register, handleSubmit, errors} = useForm();
+  const {register, handleSubmit} = useForm();
 
   const onSubmit = (data) => {
     let email = data.email;
