@@ -1,3 +1,4 @@
+import logo from '../img/logo-small.png'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,7 +11,7 @@ export default function Nav(props) {
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-light" id="mainNav">
           <div className="container">
-            <Link className="navbar-brand js-scroll-trigger" to="/">Reflexion</Link>
+            <Link className="navbar-brand js-scroll-trigger" to="/"><img src={logo} alt="Home"></img></Link>
             <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               Menu
               <i className="fas fa-bars"></i>
