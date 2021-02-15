@@ -21,5 +21,14 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.post("/", (req, res) => {
+    db.query(
+      `INSERT INTO users (email, password, firstname, lastname)
+       VALUES ($1::text, $2::text, $3::text, $4::text)
+    `,
+      [req.body.email, req.body.password, req.body.firstname, req.body.lastname]
+    )
+  });
   return router;
 };
