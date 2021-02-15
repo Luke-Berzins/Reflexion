@@ -1,7 +1,4 @@
-import { useReducer, useState, useEffect } from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form"
-import useAuthentication from "../hooks/useAuthentication";
 import { getUser } from "../helpers/selectors";
 import background from '../img/sunrise.mp4'
 
@@ -11,7 +8,6 @@ import "./Login.scss"
 
 export default function Login(props) {
   const {register, handleSubmit, errors} = useForm();
-
 
   const onSubmit = (data) => {
     getUser(data.email, data.password)
