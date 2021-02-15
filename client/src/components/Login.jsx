@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form"
-import { getUser } from "../helpers/selectors";
-import background from '../img/sunrise.mp4'
+import background from '../img/sunset.mp4'
 
 import "./Login.scss"
 import { useCookies } from 'react-cookie';
@@ -43,8 +42,13 @@ export default function Login(props) {
   }
 
   return (
-    <div id="login">
-      <div className="content">
+    <div>
+      <video autoPlay loop muted id='video'>
+        <source src={background} type='video/mp4' />
+      </video>
+
+      <div id="login">
+        <div className="content">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-md-6 contents">
@@ -53,10 +57,9 @@ export default function Login(props) {
                   <div className="col-md-12">
                     <div className="form-block">
                         <div className="mb-4">
-                        <h3>Log In to <strong>Reflexion</strong></h3>
+                        <h3>Begin Your <strong>Reflexion</strong></h3>
                         <p className="mb-4"></p>
                       </div>
-                      <h1>Hello {cookies.name}!</h1>
                       {/* <!-- register form--> */}
                       <form name='name' onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group first">
@@ -113,6 +116,7 @@ export default function Login(props) {
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </div>
 
