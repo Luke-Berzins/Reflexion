@@ -3,8 +3,6 @@ import "./Home.scss";
 export default function Home(props) {
 
   return (
-
-    <div className="bg_image"></div>
-
+    <div id="bg_image"></div>
   )
 }

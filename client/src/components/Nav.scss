@@ -2,14 +2,17 @@
 
 #mainNav {
   font-family: 'Raleway', sans-serif !important;
+  background-color: #00172b;
 }
 
 .navbar {
-  position: relative;
+  background: transparent;
+  height: 80px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
   padding: 0.5rem 1rem;
 }
 
@@ -75,3 +78,4 @@
 .navbar-toggler:hover, .navbar-toggler:focus {
   text-decoration: none;
 }
+
