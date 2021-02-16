@@ -1,4 +1,4 @@
-// import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 import React from "react";
 import Webcam from "react-webcam"
 
@@ -13,6 +13,19 @@ export default function Session(props) {
   };
 
   return (
+    <div>
+      <div className="overlay">
+        <img src="https://i.imgur.com/ApU8PwB.png" alt="overlay" style={{opacity: 0.75}} />
+
+
+      </div>
+
+      <div id="video-embed" className="video-embed">
+        <ReactPlayer
+          playing="true"
+          url="https://www.youtube.com/watch?v=Fr5kiIygm0c"
+        />
+      </div>
 
     <div id="video-container" className="animate__animated animate__fadeIn animate__slower">
 
@@ -27,11 +40,7 @@ export default function Session(props) {
       />
       </center>
 
-      {/* <div className="video-embed">
-        <ReactPlayer
-          url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
-        />
-      </div> */}
+      </div>
     </div>
 
   );
