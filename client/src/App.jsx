@@ -19,6 +19,7 @@ import About from './components/About';
 function App() {
   const [cookies, setCookie] = useCookies(['name']);
   return (
+
     <Router>
       <div>
         <Nav />

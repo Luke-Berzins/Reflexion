@@ -14,7 +14,7 @@ export default function Session(props) {
 
   return (
 
-    <div id="video-container">
+    <div id="video-container" className="animate__animated animate__fadeIn animate__slower">
 
       <center>
       <Webcam
