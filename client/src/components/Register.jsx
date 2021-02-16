@@ -1,7 +1,8 @@
 import "./Register.scss"
 import background from '../img/clouds.mp4'
 import { useForm } from "react-hook-form"
-import { registerUser } from "../helpers/selectors";
+import { useCookies } from 'react-cookie';
+import axios from "axios";
 
 export default function Register(props) {
 
@@ -12,11 +13,51 @@ export default function Register(props) {
   //     </video>
   //   </div>
   // )
-
+  const [cookies, setCookie] = useCookies(['name', 'id']);
   const {register, handleSubmit, errors} = useForm();
 
-  const onSubmit = (data) => {
-    registerUser(data)
+  const onSubmit = (user) => {
+      axios.post('/api/users', {
+          email: user.email,
+          password: user.password,
+          firstname: user.firstname,
+          lastname: user.lastname
+      }
+      ).then( (response) => {
+        let email = user.email;
+        let password = user.password;
+        Promise.all([
+          axios.get("/api/users"),
+        ]).then((all) => {
+          const users = all[0].data.users
+          const filteredUser = users.filter(filteredUser => filteredUser.email === email)[0]
+          if (!filteredUser) {
+            console.log("wrong username")
+            return;
+          }
+        if (filteredUser.password === password) {
+        console.log(filteredUser, "in")
+        setCookie('name', filteredUser.firstname, { path: '/' });
+        setCookie('id', filteredUser.id, { path: '/' });
+        window.location = "/builder"
+        return filteredUser;
+      } else if (filteredUser && filteredUser.password !== password) {
+        console.log("wrong password")
+        return null
+      }
+      console.log("wront")
+      return null;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      }
+      )
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
   }
 
 
