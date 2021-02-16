@@ -30,9 +30,6 @@ export default function Nav(props) {
               cookies.name ?
               <div className="navbar-nav ml-auto">
                 <li className="nav-item" className="nav-link js-scroll-trigger">Hello {cookies.name}</li>
-                <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/builder">Builder</Link></li>
-                  <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/session">Session</Link></li>
-                  <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/about">About</Link></li>
                 <li className="nav-item nav-link js-scroll-trigger" onClick={removeCook}>Logout</li>
                 </div>
                 : <div className="navbar-nav ml-auto">
@@ -40,7 +37,9 @@ export default function Nav(props) {
                   <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/register">Register</Link></li>
               </div>
               }
-
+              <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/builder">Builder</Link></li>
+                  <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/session">Session</Link></li>
+                  <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/about">About</Link></li>
 
 
               </ul>

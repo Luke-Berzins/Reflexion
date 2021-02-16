@@ -1,6 +1,8 @@
 import "./Register.scss"
 import background from '../img/clouds.mp4'
 import { useForm } from "react-hook-form"
+import { useCookies } from 'react-cookie';
+import axios from "axios";
 import { registerUser } from "../helpers/selectors";
 import { animate } from 'animate.css'
 
@@ -13,11 +15,34 @@ export default function Register(props) {
   //     </video>
   //   </div>
   // )
-
+  const [cookies, setCookie] = useCookies(['name', 'id']);
   const {register, handleSubmit, errors} = useForm();
 
-  const onSubmit = (data) => {
-    registerUser(data)
+  const onSubmit = (user) => {
+      axios.post('/api/users', {
+          email: user.email,
+          password: user.password,
+          firstname: user.firstname,
+          lastname: user.lastname
+      }
+      )
+        Promise.all([
+          axios.get("/api/users"),
+        ]).then((all) => {
+          let email = user.email;
+          const users = all[0].data.users
+          const filteredUser = users.filter(filteredUser => filteredUser.email === email)[0]
+          setCookie('name', filteredUser.firstname, { path: '/' });
+          setCookie('id', filteredUser.id, { path: '/' });
+          window.location = "/builder"
+          return;
+      }
+      )
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
   }
 
 

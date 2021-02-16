@@ -2,14 +2,18 @@
   box-sizing: border-box;
 }
 
-.flexbox {
+#builder {
+  display: flex;
+  justify-content: flex-start;
 
+}
+.flexbox {
   display: flex;
   justify-content: space-between;
 
   width: 100%;
   max-width: 768px;
-  height: 100vh;
+  height: 88vh;
   overflow: hidden;
   margin: 0 auto;
   padding: 15px;
@@ -23,15 +27,36 @@
   width: 100%;
   max-width: 300px;
 
-  background-color: #313131;
+  background-color: #e6e4e4;
   padding: 15px;
 }
 
 .flexbox .board .card {
   padding: 15px 25px;
-  background-color: #F3F3F3;
+  background-color: rgb(153, 153, 229);
 
   cursor: pointer;
-  margin-bottom: 15PX;
-
+  margin-bottom: 15px;
 }
+
+.picc {
+  display:flex;
+  flex-direction:column;
+  padding-top: 5%;
+  padding-right: 18%;
+
+  .picture {
+    width:600px;
+    height:300px;
+    border:1px solid #000;
+    background-color:#e6e4e4;
+    margin-top: 6%;
+  }
+  .but {
+    margin-top: 5%;
+    margin-left: 520px;
+  }
+}
+
+
+
