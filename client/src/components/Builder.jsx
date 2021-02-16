@@ -22,22 +22,17 @@ export default function Builder(props) {
         </Board>
       </main>
 
-      <div style={{display:'flex', flexDirection:'column', marginTop:'6%', marginRight:'15%'}}>
-        <div
-          className='pic'
-          style={{width:'600px',height:'300px',border:'1px solid #000',backgroundColor:'white', marginTop: '6%', marginRight: '20%'}}
-        >
+      <div className="picc">
+        <div className='picture'>
           Picture!
         </div>
         <div
-          className='pic'
-          style={{width:'600px',height:'300px',border:'1px solid #000',backgroundColor:'white', marginTop: '6%', marginRight: '20%'}}
-        >
+          className='picture'>
           Description Box!
         </div>
 
-        <section>
-          <button style={{marginTop: '5%'}} type="button" class="btn btn-info">Start!</button>
+        <section className='but'>
+          <button type="button" class="btn btn-primary btn-lg">Start!</button>
         </section>
       </div>
     </div>
