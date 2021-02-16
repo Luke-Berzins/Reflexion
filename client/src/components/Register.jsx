@@ -25,34 +25,17 @@ export default function Register(props) {
           firstname: user.firstname,
           lastname: user.lastname
       }
-      ).then( (response) => {
-        let email = user.email;
-        let password = user.password;
+      )
         Promise.all([
           axios.get("/api/users"),
         ]).then((all) => {
+          let email = user.email;
           const users = all[0].data.users
           const filteredUser = users.filter(filteredUser => filteredUser.email === email)[0]
-          if (!filteredUser) {
-            console.log("wrong username")
-            return;
-          }
-        if (filteredUser.password === password) {
-        console.log(filteredUser, "in")
-        setCookie('name', filteredUser.firstname, { path: '/' });
-        setCookie('id', filteredUser.id, { path: '/' });
-        window.location = "/builder"
-        return filteredUser;
-      } else if (filteredUser && filteredUser.password !== password) {
-        console.log("wrong password")
-        return null
-      }
-      console.log("wront")
-      return null;
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+          setCookie('name', filteredUser.firstname, { path: '/' });
+          setCookie('id', filteredUser.id, { path: '/' });
+          window.location = "/builder"
+          return;
       }
       )
       .catch(function (error) {
