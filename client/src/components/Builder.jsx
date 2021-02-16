@@ -14,11 +14,22 @@ export default function Builder(props) {
           <Cardlist poses={props.poses}/>
         </Board>
         <Board id="board_2" className="board">
-          <Card id='card_2' className="card" draggable="true">
-            <p>Card Two</p>
-          </Card>
         </Board>
       </main>
+
+      <div className="picc">
+        <div className='picture'>
+          Picture!
+        </div>
+        <div
+          className='picture'>
+          Description Box!
+        </div>
+
+        <section className='but'>
+          <button type="button" class="btn btn-primary btn-lg">Start!</button>
+        </section>
+      </div>
     </div>
   )
 }
