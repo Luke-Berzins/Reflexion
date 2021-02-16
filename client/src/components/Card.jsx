@@ -19,12 +19,12 @@ function Card (props) {
   return (
     <div
       id={props.id}
-      className={props.className}
+      className={`${props.className} card-box`}
       draggable={props.draggable}
       onDragStart={dragStart}
       onDragOver={dragOver}
     >
-      <h1>{props.name}</h1>
+      <p>{props.name}</p>
     </div>
   )
 }
