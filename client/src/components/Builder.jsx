@@ -8,10 +8,10 @@ import "./Builder.scss"
 export default function Builder(props) {
 
   return (
-    <div>
+    <div id='builder'>
       <main className='flexbox'>
         <Board id="board_1" className="board">
-          <Cardlist poses={props.poses}/>
+          <Cardlist id="cardlist_1" className='card-list' poses={props.poses}/>
         </Board>
         <Board id="board_2" className="board">
         </Board>
