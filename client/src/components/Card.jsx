@@ -24,7 +24,7 @@ function Card (props) {
       onDragStart={dragStart}
       onDragOver={dragOver}
     >
-      { props.children }
+      <h1>{props.name}</h1>
     </div>
   )
 }

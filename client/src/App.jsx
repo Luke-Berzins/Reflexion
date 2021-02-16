@@ -1,5 +1,7 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { useCookies } from 'react-cookie';
+import axios from "axios";
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,6 +20,20 @@ import About from './components/About';
 
 function App() {
   const [cookies, setCookie] = useCookies(['name']);
+  const [state, setState] = useState({
+    poses: []
+  })
+
+  useEffect(() => {
+    Promise.all([
+      axios.get("/api/poses"),
+    ]).then((all) => {
+      console.log(all[0].data.poses)
+      setState({poses: all[0].data.poses});
+      console.log("hhhhh", state.poses)
+    })
+  }, []);
+
   return (
 
     <Router>
@@ -27,8 +43,8 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/builder">
-            <Builder />
+          <Route path="/builder" >
+            <Builder poses={state.poses}/>
           </Route>
           <Route path="/session">
             <Session />
