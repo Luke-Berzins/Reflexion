@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form"
 import background from '../img/sunset.mp4'
-
+import { animate } from 'animate.css'
 import "./Login.scss"
 import { useCookies } from 'react-cookie';
 import axios from "axios";
@@ -43,12 +43,12 @@ export default function Login(props) {
 
   return (
     <div>
-      <video autoPlay loop muted id='video'>
+      <video autoPlay loop muted id='video' className="animate__animated animate__fadeIn">
         <source src={background} type='video/mp4' />
       </video>
 
       <div id="login">
-        <div className="content">
+        <div className="content animate__animated animate__fadeIn animate__slow">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-md-6 contents">

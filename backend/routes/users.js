@@ -26,6 +26,7 @@ module.exports = (db) => {
     db.query(
       `INSERT INTO users (email, password, firstname, lastname)
        VALUES ($1::text, $2::text, $3::text, $4::text)
+       RETURNING id;
     `,
       [req.body.email, req.body.password, req.body.firstname, req.body.lastname]
     )

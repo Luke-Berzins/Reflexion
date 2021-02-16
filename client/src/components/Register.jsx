@@ -3,6 +3,8 @@ import background from '../img/clouds.mp4'
 import { useForm } from "react-hook-form"
 import { useCookies } from 'react-cookie';
 import axios from "axios";
+import { registerUser } from "../helpers/selectors";
+import { animate } from 'animate.css'
 
 export default function Register(props) {
 
@@ -63,12 +65,12 @@ export default function Register(props) {
 
   return (
     <div>
-      <video autoPlay loop muted id='video'>
+      <video autoPlay loop muted id='video' className="animate__animated animate__fadeIn">
         <source src={background} type='video/mp4' />
       </video>
       <div id='container'>
         <div id='register'>
-          <div className="content">
+          <div className="content animate__animated animate__fadeIn animate__slow">
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-md-6 contents">
