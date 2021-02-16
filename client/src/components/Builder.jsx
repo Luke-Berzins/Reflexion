@@ -5,13 +5,22 @@ import Cardlist from './Cardlist'
 
 import "./Builder.scss"
 
+const generateSequence = (selectedPoses) => {
+
+  const list = document.getElementById('board_2').children
+  const arr = [...list];
+  arr.forEach(x => console.log(x.id.split('').pop()))
+
+}
+
+
 export default function Builder(props) {
 
   return (
-    <div id='builder'>
+    <div id="builder">
       <main className='flexbox'>
         <Board id="board_1" className="board">
-          <Cardlist id="cardlist_1" className='card-list' poses={props.poses}/>
+          <Cardlist id="cardlist_1" className="card-list" poses={props.poses}/>
         </Board>
         <Board id="board_2" className="board">
         </Board>
@@ -27,7 +36,7 @@ export default function Builder(props) {
         </div>
 
         <section className='but'>
-          <button type="button" class="btn btn-primary btn-lg">Start!</button>
+          <button type="button" class="btn btn-primary btn-lg" onClick={generateSequence}>Build!</button>
         </section>
       </div>
     </div>
