@@ -7,7 +7,8 @@ import "./Builder.scss"
 export default function Builder(props) {
 
   return (
-    <div>
+    <div id="builder">
+
       <main className='flexbox'>
         <Board id="board_1" className="board">
           <Card id='card_1' className="card" draggable="true">
@@ -20,6 +21,25 @@ export default function Builder(props) {
           </Card>
         </Board>
       </main>
+
+      <div style={{display:'flex', flexDirection:'column', marginTop:'6%', marginRight:'15%'}}>
+        <div
+          className='pic'
+          style={{width:'600px',height:'300px',border:'1px solid #000',backgroundColor:'white', marginTop: '6%', marginRight: '20%'}}
+        >
+          Picture!
+        </div>
+        <div
+          className='pic'
+          style={{width:'600px',height:'300px',border:'1px solid #000',backgroundColor:'white', marginTop: '6%', marginRight: '20%'}}
+        >
+          Description Box!
+        </div>
+
+        <section>
+          <button style={{marginTop: '5%'}} type="button" class="btn btn-info">Start!</button>
+        </section>
+      </div>
     </div>
   )
 }
