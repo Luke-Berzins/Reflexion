@@ -12,6 +12,7 @@ export default function DayList(props) {
   name={poses.name}
   description={poses.description}
   overlay={poses.overlay}
+  icon={poses.icon}
   />
   )
   });
