@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -35,8 +37,6 @@
 
   padding: 15px 25px;
   background-color: rgb(153, 153, 229);
-  color: rebeccapurple;
-
   cursor: pointer;
   margin-bottom: 15px;
 }
@@ -64,5 +64,7 @@
   }
 }
 
-
-
+.card-box {
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 1em !important;
+}
