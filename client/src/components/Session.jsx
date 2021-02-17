@@ -3,7 +3,16 @@ import React from "react";
 import Webcam from "react-webcam"
 import axios from "axios";
 import "./Session.scss"
-import { urlParams } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
+
+import VoiceDetection from './VoiceDetection';
+
 
 export default function Session(props) {
 
@@ -13,11 +22,17 @@ const dummyArr = [  {poseID: 1, overlay: 'https://i.imgur.com/ApU8PwB.png', vide
 
 //  let { sessionID } = urlParams()
 
-//   axios.get("/api/sequence_pose/build", {
-//     params: {
-//       session: sessionID
-//     }
-//   })
+  axios.get("/api/sequence_pose/build", {
+    params: {
+      session: id
+    }
+  }).then(res => {
+    const poseList = res.data.map(object => {
+      return object.pose_id
+    })
+    console.log(poseList)
+    return poseList;
+  })
 
   const videoConstraints = {
     facingMode: "user",
@@ -27,6 +42,7 @@ const dummyArr = [  {poseID: 1, overlay: 'https://i.imgur.com/ApU8PwB.png', vide
 
   return (
     <div id="session" className="animate__animated animate__fadeIn">
+      <VoiceDetection />
       <div id="video-embed" className="video-embed animate__animated animate__fadeIn animate__slower animate__delay-3s">
         <ReactPlayer
           playing

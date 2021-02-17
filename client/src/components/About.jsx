@@ -3,6 +3,7 @@ import "./About.scss"
 export default function About(props) {
 
   return (
+
     <div id='about'>
 
       <div className="container">
