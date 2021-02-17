@@ -2,18 +2,30 @@ import React from 'react'
 import Board from './Board'
 import Card from './Card'
 import Cardlist from './Cardlist'
-
+import axios from "axios";
 import "./Builder.scss"
 
-const generateSequence = (selectedPoses) => {
+
+
+const generateSequence = () => {
 
   const list = document.getElementById('board_2').children
-  const arr = [...list];
-  arr.forEach(x => console.log(x.id.split('').pop()))
+  const arr = [...list].map(x => x.id.split('').pop() * 1)
+  axios.post('/api/sequences', {
+    name: "JIMMY",
+  })
+  .then(res => {
+    const seqID = res.data.rows[0].id
+    arr.forEach(pose => {
+      axios.post('/api/sequences', {
+        name: "JIMMY",
+      })
+    })
+
+  })
+  .catch(err => console.log(err))
 
 }
-
-
 export default function Builder(props) {
 
   return (

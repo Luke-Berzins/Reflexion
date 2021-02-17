@@ -7,9 +7,7 @@ function Card (props) {
     const target = e.target;
     e.dataTransfer.setData('card_id', target.id);
 
-    setTimeout(() => {
-      target.style.display = "none";
-    }, 0);
+
   }
 
   const dragOver = e => {
@@ -19,12 +17,12 @@ function Card (props) {
   return (
     <div
       id={props.id}
-      className={`${props.className} card-box`}
+      className={props.className}
       draggable={props.draggable}
       onDragStart={dragStart}
       onDragOver={dragOver}
     >
-      <p>{props.name}</p>
+      <h1>{props.name}</h1>
     </div>
   )
 }

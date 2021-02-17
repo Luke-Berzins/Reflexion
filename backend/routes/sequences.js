@@ -23,5 +23,17 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
+  router.post("/", (req, res) => {
+    db.query(
+      `INSERT INTO sequences (name)
+       VALUES ($1::text)
+       RETURNING id;
+    `,
+      [req.body.name]
+    ).then(response => {
+      res.send(response)
+    })
+  });
   return router;
 };
