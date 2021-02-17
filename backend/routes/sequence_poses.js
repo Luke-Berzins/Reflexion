@@ -37,5 +37,27 @@ module.exports = (db) => {
         .json({ error: err.message });
     });
   });
+
+  router.get("/build", (req, res) => {
+    const sessionID = req.query.session * 1;
+    let query = `SELECT pose_id FROM sequence_pose
+                 WHERE sequence_id = ${sessionID}
+                 ORDER BY position
+    ;`;
+    console.log(query);
+    db.query(query)
+      .then(data => {
+        res.send(data.rows)
+        const sequence_pose = data.rows;
+        res.json({ sequence_pose });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+
+  });
+
   return router;
 };
