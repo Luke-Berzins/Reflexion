@@ -15,7 +15,7 @@
 
   width: 100%;
   max-width: 768px;
-  height: 150vh;
+  height: 100vh;
   overflow: hidden;
   margin: 0 auto;
   padding: 15px;
@@ -31,6 +31,7 @@
 
   background-color: #e6e4e4;
   padding: 15px;
+  overflow: scroll;
 }
 
 .flexbox .board .card {
