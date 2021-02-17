@@ -3,8 +3,7 @@ import Board from './Board'
 import Card from './Card'
 import Cardlist from './Cardlist'
 import axios from "axios";
-import "./Builder.scss";
-
+import "./Builder.scss"
 
 
 
@@ -29,8 +28,10 @@ export default function Builder(props) {
       window.location = `/session/${seqID}`
     })
     .catch(err => console.log(err))
-
   }
+
+
+
 
   return (
     <div id="builder">
@@ -52,7 +53,7 @@ export default function Builder(props) {
         </div>
 
         <section className='but'>
-          <button type="button" class="btn btn-primary btn-lg" onClick={generateSequence}>Build!</button>
+          <button type="button" class="btn btn-primary btn-lg" onClick={generateSequence} onChange={e => props.onChange(7)}>Build!</button>
         </section>
       </div>
     </div>

@@ -21,7 +21,8 @@ import About from './components/About';
 function App() {
   const [cookies, setCookie] = useCookies(['name']);
   const [state, setState] = useState({
-    poses: []
+    poses: [],
+    currentSession: null
   })
 
   useEffect(() => {
@@ -42,7 +43,7 @@ function App() {
             <About />
           </Route>
           <Route path="/builder" >
-            <Builder poses={state.poses}/>
+            <Builder poses={state.poses} />
           </Route>
           <Route path="/session/:id">
             <Session />

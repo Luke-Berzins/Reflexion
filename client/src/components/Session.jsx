@@ -3,17 +3,15 @@ import React from "react";
 import Webcam from "react-webcam"
 import axios from "axios";
 import "./Session.scss"
-// import { state, useState, useEffect } from "react";
-// let { sessionID } = urlParams()
+import { urlParams } from "react";
+
 export default function Session(props) {
 
-  const session = props.currentSession;
-  console.log('Session:', session);
-
+ let { sessionID } = urlParams()
 
   axios.get("/api/sequence_pose/build", {
     params: {
-      session: "hello"
+      session: sessionID
     }
   })
 
