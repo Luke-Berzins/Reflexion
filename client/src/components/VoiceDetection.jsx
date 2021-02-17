@@ -1,6 +1,7 @@
 import '@tensorflow/tfjs';
 import * as speechCommands from '@tensorflow-models/speech-commands';
 import { useEffect, useState } from 'react';
+import './VoiceDetection.scss'
 
 function VoiceDetection() {
 
@@ -72,10 +73,21 @@ function VoiceDetection() {
   //     break
   //   }
   // }
+
+  function myFunction1() {
+    alert("I AM PREVIOUS!");
+  }
+  function myFunction2() {
+    alert("I AM NEXT!");
+  }
   return (
-    <div className="App">
-      Voice!
-      <button onClick={init}>START</button>
+    <div className="app">
+      <div className='apps'>
+        <button onClick={myFunction1} type="button" className="btn btn-primary">PREVIOUS</button>
+        <button onClick={init} type="button" className="btn btn-primary">START</button>
+        <button onClick={myFunction2} type="button" className="btn btn-primary">NEXT</button>
+      </div>
+
       {(heard && heard[0].word) === "Next" && <h1>I HEARD Nexxxxtttt</h1>}
       {(heard && heard[0].word) === "Start" && <h1>I HEARD Start</h1>}
       {(heard && heard[0].word) === "Stop" && <h1>I HEARD Stop</h1>}
