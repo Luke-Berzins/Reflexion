@@ -24,8 +24,18 @@ export default function Session(props) {
     const poseList = res.data.map(object => {
       return object.pose_id
     })
-    console.log(poseList)
     return poseList;
+  }).then(result => {
+    console.log(result, "res")
+    axios.get("/api/poses/build", {
+      params: {
+        session: result
+      }
+    }).then(response => {
+      console.log("ordered list from DB", response.data)
+    })
+  }).catch(error => {
+    console.log(error)
   })
 
   const videoConstraints = {
