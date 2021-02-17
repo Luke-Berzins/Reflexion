@@ -81,8 +81,8 @@ function VoiceDetection() {
     alert("I AM NEXT!");
   }
   return (
-    <div className="app">
-      <div className='apps'>
+    <div className="seq-nav">
+      <div className='seq-nav-buttons'>
         <button onClick={myFunction1} type="button" className="btn btn-primary">PREVIOUS</button>
         <button onClick={init} type="button" className="btn btn-primary">START</button>
         <button onClick={myFunction2} type="button" className="btn btn-primary">NEXT</button>
