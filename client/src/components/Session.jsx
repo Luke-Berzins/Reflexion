@@ -7,13 +7,17 @@ import { urlParams } from "react";
 
 export default function Session(props) {
 
- let { sessionID } = urlParams()
+const dummyArr = [  {poseID: 1, overlay: 'https://i.imgur.com/ApU8PwB.png', video: 'https://www.youtube.com/watch?v=Fr5kiIygm0c' },
+                    {poseID: 2, overlay: 'https://i.imgur.com/ApU8PwB.png', video: 'https://www.youtube.com/watch?v=Mn6RSIRCV3w' },
+                    {poseID: 3, overlay: 'https://i.imgur.com/ApU8PwB.png', video: 'https://www.youtube.com/watch?v=NytDpa2r34g' } ];
 
-  axios.get("/api/sequence_pose/build", {
-    params: {
-      session: sessionID
-    }
-  })
+//  let { sessionID } = urlParams()
+
+//   axios.get("/api/sequence_pose/build", {
+//     params: {
+//       session: sessionID
+//     }
+//   })
 
   const videoConstraints = {
     facingMode: "user",
@@ -26,14 +30,14 @@ export default function Session(props) {
       <div id="video-embed" className="video-embed animate__animated animate__fadeIn animate__slower animate__delay-3s">
         <ReactPlayer
           playing
-          url="https://www.youtube.com/watch?v=Fr5kiIygm0c"
+          url={`${dummyArr[2].video}`}
         />
       </div>
 
     <div className="pose-cam-container animate__animated animate__fadeIn animate__slower animate__delay-2s">
 
       <div className="overlay">
-        <img src="https://i.imgur.com/ApU8PwB.png" alt="overlay" style={{opacity: 0.75}} />
+        <img src={`${dummyArr[2].overlay}`} alt="overlay" style={{opacity: 0.75}} />
       </div>
 
         <div id="video-container">

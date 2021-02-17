@@ -40,15 +40,7 @@ module.exports = (db) => {
 
   router.get("/build", (req, res) => {
     console.log('REQ:', req.query)
-<<<<<<< HEAD
-    // console.log('RES:', res)
   });
 
-
-
-=======
-  });
-
->>>>>>> a46691cae80152a5fe7f1a5153e43433eb1f3c37
   return router;
 };
