@@ -21,16 +21,15 @@ import About from './components/About';
 function App() {
   const [cookies, setCookie] = useCookies(['name']);
   const [state, setState] = useState({
-    poses: []
+    poses: [],
+    currentSession: null
   })
 
   useEffect(() => {
     Promise.all([
       axios.get("/api/poses"),
     ]).then((all) => {
-      console.log(all[0].data.poses)
       setState({poses: all[0].data.poses});
-      console.log("hhhhh", state.poses)
     })
   }, []);
 
@@ -44,9 +43,9 @@ function App() {
             <About />
           </Route>
           <Route path="/builder" >
-            <Builder poses={state.poses}/>
+            <Builder poses={state.poses} />
           </Route>
-          <Route path="/session">
+          <Route path="/session/:id">
             <Session />
           </Route>
           <Route path="/login">

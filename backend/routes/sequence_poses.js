@@ -37,5 +37,10 @@ module.exports = (db) => {
         .json({ error: err.message });
     });
   });
+
+  router.get("/build", (req, res) => {
+    console.log('REQ:', req.query)
+  });
+
   return router;
 };

@@ -1,10 +1,26 @@
 import ReactPlayer from "react-player";
 import React from "react";
 import Webcam from "react-webcam"
-
+import axios from "axios";
 import "./Session.scss"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
+
 
 export default function Session(props) {
+
+  let { id } = useParams();
+
+  axios.get("/api/sequence_pose/build", {
+    params: {
+      session: id
+    }
+  })
 
   const videoConstraints = {
     facingMode: "user",
