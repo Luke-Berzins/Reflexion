@@ -3,33 +3,34 @@ import Board from './Board'
 import Card from './Card'
 import Cardlist from './Cardlist'
 import axios from "axios";
-import "./Builder.scss"
+import "./Builder.scss";
 
 
 
-const generateSequence = () => {
-  const list = document.getElementById('board_2').children
-  const poseArray = [...list].map(x => x.id.split('').pop() * 1)
-  axios.post('/api/sequences', {
-    name: "JIMMY",
-  })
-  .then(res => {
-    const seqID = res.data.rows[0].id
-    let counter = 1;
-    poseArray.forEach(pose => {
-      axios.post('/api/sequence_pose', {
-        sequence_id: seqID,
-        pose_id: pose,
-        position: counter
-      })
-      counter++;
-    })
 
-  })
-  .catch(err => console.log(err))
-
-}
 export default function Builder(props) {
+  const generateSequence = () => {
+    const list = document.getElementById('board_2').children
+    const poseArray = [...list].map(x => x.id.split('').pop() * 1)
+    axios.post('/api/sequences', {
+      name: "JIMMY",
+    })
+    .then(res => {
+      const seqID = res.data.rows[0].id
+      let counter = 1;
+      poseArray.forEach(pose => {
+        axios.post('/api/sequence_pose', {
+          sequence_id: seqID,
+          pose_id: pose,
+          position: counter
+        })
+        counter++;
+      })
+      window.location = `/session/${seqID}`
+    })
+    .catch(err => console.log(err))
+
+  }
 
   return (
     <div id="builder">

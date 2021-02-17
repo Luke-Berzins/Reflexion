@@ -28,9 +28,7 @@ function App() {
     Promise.all([
       axios.get("/api/poses"),
     ]).then((all) => {
-      console.log(all[0].data.poses)
       setState({poses: all[0].data.poses});
-      console.log("hhhhh", state.poses)
     })
   }, []);
 
@@ -46,7 +44,7 @@ function App() {
           <Route path="/builder" >
             <Builder poses={state.poses}/>
           </Route>
-          <Route path="/session">
+          <Route path="/session/:id">
             <Session />
           </Route>
           <Route path="/login">
