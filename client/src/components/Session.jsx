@@ -11,6 +11,8 @@ import {
   useParams
 } from "react-router-dom";
 
+import VoiceDetection from './VoiceDetection';
+
 
 export default function Session(props) {
 
@@ -36,6 +38,7 @@ export default function Session(props) {
 
   return (
     <div id="session" className="animate__animated animate__fadeIn">
+      <VoiceDetection />
       <div id="video-embed" className="video-embed animate__animated animate__fadeIn animate__slower animate__delay-3s">
         <ReactPlayer
           playing
