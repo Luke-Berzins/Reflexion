@@ -20,6 +20,12 @@ export default function Session(props) {
     params: {
       session: id
     }
+  }).then(res => {
+    const poseList = res.data.map(object => {
+      return object.pose_id
+    })
+    console.log(poseList)
+    return poseList;
   })
 
   const videoConstraints = {
