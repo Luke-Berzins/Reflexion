@@ -3,25 +3,14 @@ import React from "react";
 import Webcam from "react-webcam"
 import axios from "axios";
 import "./Session.scss"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams
-} from "react-router-dom";
-
 import VoiceDetection from './VoiceDetection';
+import { useParams } from "react-router-dom";
+
 
 
 export default function Session(props) {
 
-const dummyArr = [  {poseID: 1, overlay: 'https://i.imgur.com/ApU8PwB.png', video: 'https://www.youtube.com/watch?v=Fr5kiIygm0c' },
-                    {poseID: 2, overlay: 'https://i.imgur.com/ApU8PwB.png', video: 'https://www.youtube.com/watch?v=Mn6RSIRCV3w' },
-                    {poseID: 3, overlay: 'https://i.imgur.com/ApU8PwB.png', video: 'https://www.youtube.com/watch?v=NytDpa2r34g' } ];
-
-//  let { sessionID } = urlParams()
-
+  let { id } = useParams();
   axios.get("/api/sequence_pose/build", {
     params: {
       session: id
@@ -33,7 +22,6 @@ const dummyArr = [  {poseID: 1, overlay: 'https://i.imgur.com/ApU8PwB.png', vide
     console.log(poseList)
     return poseList;
   })
-
   const videoConstraints = {
     facingMode: "user",
     width:  { min: 1280 },
@@ -41,22 +29,27 @@ const dummyArr = [  {poseID: 1, overlay: 'https://i.imgur.com/ApU8PwB.png', vide
   };
 
   return (
+
     <div id="session" className="animate__animated animate__fadeIn">
-      <VoiceDetection />
+
+      <div className="voice-detection">
+       <VoiceDetection />
+      </div>
+
       <div id="video-embed" className="video-embed animate__animated animate__fadeIn animate__slower animate__delay-3s">
+
         <ReactPlayer
           playing
-          url={`${dummyArr[2].video}`}
+          url="https://www.youtube.com/watch?v=Fr5kiIygm0c"
         />
-      </div>
 
+      </div>
     <div className="pose-cam-container animate__animated animate__fadeIn animate__slower animate__delay-2s">
-
       <div className="overlay">
-        <img src={`${dummyArr[2].overlay}`} alt="overlay" style={{opacity: 0.75}} />
+        <img src="https://i.imgur.com/ApU8PwB.png" alt="overlay" style={{opacity: 0.75}} />
       </div>
-
         <div id="video-container">
+
           <center>
           <Webcam
             style = { { width: 'auto', height: '99vh', } }
@@ -71,6 +64,5 @@ const dummyArr = [  {poseID: 1, overlay: 'https://i.imgur.com/ApU8PwB.png', vide
         </div>
       </div>
     </div>
-
   );
 }

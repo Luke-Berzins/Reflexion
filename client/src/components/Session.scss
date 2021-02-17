@@ -13,9 +13,15 @@
 .overlay img {
   padding-top: 60px;
   position: absolute;
-  z-index: 9998;
+  z-index: 9997;
   width: 100%;
   height: 100%;
+}
+
+.voice-detection {
+  padding-top: 90px;
+  position: absolute;
+  z-index: 9998;
 }
 
 #video-embed {
