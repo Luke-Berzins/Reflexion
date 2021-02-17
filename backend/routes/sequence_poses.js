@@ -26,14 +26,16 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     db.query(
-      `INSERT INTO sequences (name)
-       VALUES ($1::text)
-       RETURNING id;
+      `INSERT INTO sequence_pose (sequence_id, pose_id, position)
+       VALUES ($1::integer, $2::integer, $3::integer);
     `,
-      [req.body.name]
-    ).then(response => {
-      res.send(response)
-    })
+      [req.body.sequence_id, req.body.pose_id, req.body.position]
+    )
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
   });
   return router;
 };

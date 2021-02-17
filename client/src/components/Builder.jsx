@@ -8,18 +8,21 @@ import "./Builder.scss"
 
 
 const generateSequence = () => {
-
   const list = document.getElementById('board_2').children
-  const arr = [...list].map(x => x.id.split('').pop() * 1)
+  const poseArray = [...list].map(x => x.id.split('').pop() * 1)
   axios.post('/api/sequences', {
     name: "JIMMY",
   })
   .then(res => {
     const seqID = res.data.rows[0].id
-    arr.forEach(pose => {
-      axios.post('/api/sequences', {
-        name: "JIMMY",
+    let counter = 1;
+    poseArray.forEach(pose => {
+      axios.post('/api/sequence_pose', {
+        sequence_id: seqID,
+        pose_id: pose,
+        position: counter
       })
+      counter++;
     })
 
   })
