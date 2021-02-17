@@ -3,19 +3,14 @@ import React from "react";
 import Webcam from "react-webcam"
 import axios from "axios";
 import "./Session.scss"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams
-} from "react-router-dom";
+import VoiceDetection from './VoiceDetection';
+import { useParams } from "react-router-dom";
+
 
 
 export default function Session(props) {
 
   let { id } = useParams();
-
   axios.get("/api/sequence_pose/build", {
     params: {
       session: id
@@ -37,7 +32,6 @@ export default function Session(props) {
   }).catch(error => {
     console.log(error)
   })
-
   const videoConstraints = {
     facingMode: "user",
     width:  { min: 1280 },
@@ -45,21 +39,27 @@ export default function Session(props) {
   };
 
   return (
+
     <div id="session" className="animate__animated animate__fadeIn">
+
+      <div className="voice-detection">
+       <VoiceDetection />
+      </div>
+
       <div id="video-embed" className="video-embed animate__animated animate__fadeIn animate__slower animate__delay-3s">
+
         <ReactPlayer
           playing
           url="https://www.youtube.com/watch?v=Fr5kiIygm0c"
         />
+
       </div>
-
     <div className="pose-cam-container animate__animated animate__fadeIn animate__slower animate__delay-2s">
-
       <div className="overlay">
         <img src="https://i.imgur.com/ApU8PwB.png" alt="overlay" style={{opacity: 0.75}} />
       </div>
-
         <div id="video-container">
+
           <center>
           <Webcam
             style = { { width: 'auto', height: '99vh', } }
@@ -74,6 +74,5 @@ export default function Session(props) {
         </div>
       </div>
     </div>
-
   );
 }
