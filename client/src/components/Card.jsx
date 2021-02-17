@@ -7,9 +7,9 @@ function Card (props) {
     const target = e.target;
     e.dataTransfer.setData('card_id', target.id);
 
-    setTimeout(() => {
-      target.style.display = "none";
-    }, 0);
+    // setTimeout(() => {
+    //   target.style.display = "none";
+    // }, 0);
   }
 
   const dragOver = e => {
@@ -24,7 +24,7 @@ function Card (props) {
       onDragStart={dragStart}
       onDragOver={dragOver}
     >
-      <p>{props.name}</p>
+      <p><b>{props.name}</b></p>
     </div>
   )
 }
