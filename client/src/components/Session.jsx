@@ -5,7 +5,7 @@ import axios from "axios";
 import "./Session.scss"
 import VoiceDetection from './VoiceDetection';
 import { useParams } from "react-router-dom";
-
+import { useState, useEffect } from "react";
 
 
 export default function Session(props) {
@@ -15,12 +15,15 @@ export default function Session(props) {
     params: {
       session: id
     }
-  }).then(res => {
+  })
+  .then(res => {
+    console.log("hi")
     const poseList = res.data.map(object => {
       return object.pose_id
     })
     return poseList;
-  }).then(result => {
+  })
+  .then(result => {
     console.log(result, "res")
     axios.get("/api/poses/build", {
       params: {
