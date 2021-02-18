@@ -57,13 +57,33 @@
   padding-right: 18%;
 
   .picture {
+
     width:600px;
-    height:300px;
-    border:1px solid #000;
+    height:400px;
+    border:1px solid rgb(235, 225, 225);
     background-color:#e6e4e4;
     margin-top: 6%;
+    padding-top: 150px;
+    text-align: center;
+  }
+
+
+  .description {
+    width:600px;
+    height:200px;
+    border:1px solid rgb(235, 225, 225);
+    background-color:#e6e4e4;
+    margin-top: 6%;
+    font-family: 'Raleway', sans-serif !important;
+    text-align: left;
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 10px;
+    overflow: scroll;
+    font-size: large;
   }
   .but {
+
     margin-top: 5%;
     margin-left: 520px;
   }
@@ -73,3 +93,4 @@
   font-family: 'Raleway', sans-serif !important;
   font-size: 1em !important;
 }
+

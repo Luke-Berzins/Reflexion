@@ -44,7 +44,6 @@ module.exports = (db) => {
                  WHERE sequence_id = ${sessionID}
                  ORDER BY position
     ;`;
-    console.log(query);
     db.query(query)
       .then(data => {
         res.send(data.rows)

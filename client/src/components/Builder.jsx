@@ -56,8 +56,8 @@ export default function Builder(props) {
         <img src={state.selectedPose.icon}></img>
         </div>
         <div
-          className='picture'>
-          {state.selectedPose.description}
+          className='description'>
+          <b>{state.selectedPose.description}</b>
         </div>
 
         <section className='but'>
