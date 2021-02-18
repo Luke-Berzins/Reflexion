@@ -1,8 +1,8 @@
 INSERT INTO poses (name, icon, video, description, overlay)
-VALUES ('Tadasana (Mountain Pose)', '../img/icons/tadasana.png', 'https://www.youtube.com/watch?v=aXaPTiBpp5U', 'Tadasana (Mountain Pose): A common starting pose, tadasana improves overall posture by increasing bodily awareness. Engages abdominal and back muscles. Easily transition from tadasana to other standing poses.', 'https://i.imgur.com/xjorBOU.png');
+VALUES ('Tadasana (Mountain Pose)', 'https://i.imgur.com/Mj1AaHi.png', 'https://www.youtube.com/watch?v=mnlmJjt1KNw', 'Tadasana (Mountain Pose): A common starting pose, tadasana improves overall posture by increasing bodily awareness. Engages abdominal and back muscles. Easily transition from tadasana to other standing poses.', 'https://i.imgur.com/5EXVHFh.png');
 
 INSERT INTO poses (name, icon, video, description, overlay)
-VALUES ('Vrksasana (Tree Pose)', '../img/icons/vrksasana.png', 'video_url', 'Recommended after mountain pose. Vrksasana (Tree Pose) strengthens legs, hips, glutes and obliques, and helps to improve your balance over time.', '../img/overlays/vrksasana.png');
+VALUES ('Vrksasana (Tree Pose)', 'https://i.imgur.com/kY5JIJv.png', 'https://www.youtube.com/watch?v=Fr5kiIygm0c', 'Recommended after mountain pose. Vrksasana (Tree Pose) strengthens legs, hips, glutes and obliques, and helps to improve your balance over time.', '../img/overlays/vrksasana.png');
 
 INSERT INTO poses (name, icon, video, description, overlay)
 VALUES ('Utkatasana (Chair Pose)', '../img/icons/utkatasana.png', 'video_url', 'Excellent pose for developing balance, and for improving core strength while challenging your quads.', '../img/overlays/utkatasana.png');
@@ -11,7 +11,7 @@ INSERT INTO poses (name, icon, video, description, overlay)
 VALUES ('Virabhadrasana I (Warrior 1)', '../img/icons/virabhadrasana1.png', 'video_url', 'Warrior poses are exceptionally grounding, serving to improve lower body strength, spinal alignment, and overall balance.', '../img/overlays/virabhadrasana1.png');
 
 INSERT INTO poses (name, icon, video, description, overlay)
-VALUES ('Virabhadrasana II (Warrior 2)', '../img/icons/virabhadrasana2.png', 'video_url', 'Warrior poses are exceptionally grounding, serving to improve lower body strength, spinal alignment, and overall balance.', '../img/overlays/virabhadrasana2.png');
+VALUES ('Virabhadrasana II (Warrior 2)', 'https://i.imgur.com/VGK8DJL.png', 'https://www.youtube.com/watch?v=Mn6RSIRCV3w', 'Warrior poses are exceptionally grounding, serving to improve lower body strength, spinal alignment, and overall balance.', 'https://i.imgur.com/0RC0QIg.png');
 
 INSERT INTO poses (name, icon, video, description, overlay)
 VALUES ('Trikonasana (Triangle Pose)', '../img/icons/trikonasana.png', 'video_url', 'Trikonasana primarily stretches the hips and obliques. By placing your head and torso perpendicular to their normal alignment, trikonasana also doubles as an excellent balance challenge.', '../img/overlays/trikonasana.png');
