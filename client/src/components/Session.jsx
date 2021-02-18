@@ -5,11 +5,15 @@ import axios from "axios";
 import "./Session.scss"
 import VoiceDetection from './VoiceDetection';
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
 
 
 export default function Session(props) {
 
+  const [state, setState] = useState({
+    currentPose: {}
+  })
   let { id } = useParams();
   axios.get("/api/sequence_pose/build", {
     params: {
@@ -22,15 +26,19 @@ export default function Session(props) {
       return object.pose_id
     })
     return poseList;
+  }).catch(error => {
+    console.log(error)
   })
   .then(result => {
-    console.log(result, "res")
+
     axios.get("/api/poses/build", {
       params: {
         session: result
       }
     }).then(response => {
-      console.log("ordered list from DB", response.data)
+      const firstPose = response.data['1']
+      setState({currentPose: firstPose});
+
     })
   }).catch(error => {
     console.log(error)
@@ -53,13 +61,14 @@ export default function Session(props) {
 
         <ReactPlayer
           playing
-          url="https://www.youtube.com/watch?v=Fr5kiIygm0c"
+          url={state.currentPose.video}
         />
 
       </div>
     <div className="pose-cam-container animate__animated animate__fadeIn animate__slower animate__delay-2s">
       <div className="overlay">
-        <img src="https://i.imgur.com/ApU8PwB.png" alt="overlay" style={{opacity: 0.75}} />
+        <img src={state.currentPose.overlay} alt="overlay" style={{opacity: 0.75}} />
+        {/* <img src='https://i.imgur.com/xjorBOU.png' alt="overlay" style={{opacity: 0.75}} /> */}
       </div>
         <div id="video-container">
 
@@ -73,6 +82,10 @@ export default function Session(props) {
             videoConstraints = { videoConstraints }
           />
           </center>
+
+        </div>
+        <div>
+          <h1> !! {state.currentPose.video} !!</h1>
 
         </div>
       </div>

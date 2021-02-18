@@ -1,5 +1,5 @@
 INSERT INTO poses (name, icon, video, description, overlay)
-VALUES ('Tadasana (Mountain Pose)', '../img/icons/tadasana.png', 'video_url', 'Tadasana (Mountain Pose): A common starting pose, tadasana improves overall posture by increasing bodily awareness. Engages abdominal and back muscles. Easily transition from tadasana to other standing poses.', '../img/overlays/tadasana.png');
+VALUES ('Tadasana (Mountain Pose)', '../img/icons/tadasana.png', 'https://www.youtube.com/watch?v=aXaPTiBpp5U', 'Tadasana (Mountain Pose): A common starting pose, tadasana improves overall posture by increasing bodily awareness. Engages abdominal and back muscles. Easily transition from tadasana to other standing poses.', 'https://i.imgur.com/xjorBOU.png');
 
 INSERT INTO poses (name, icon, video, description, overlay)
 VALUES ('Vrksasana (Tree Pose)', '../img/icons/vrksasana.png', 'video_url', 'Recommended after mountain pose. Vrksasana (Tree Pose) strengthens legs, hips, glutes and obliques, and helps to improve your balance over time.', '../img/overlays/vrksasana.png');
