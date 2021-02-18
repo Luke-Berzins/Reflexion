@@ -4,10 +4,15 @@ import Card from './Card'
 import Cardlist from './Cardlist'
 import axios from "axios";
 import "./Builder.scss"
-
+import { useState } from "react";
 
 
 export default function Builder(props) {
+
+  const [state, setState] = useState({
+    selectedPose: {}
+  })
+
   const generateSequence = () => {
     const list = document.getElementById('board_2').children
     const poseArray = [...list].map(x => x.id.split('').pop() * 1)
@@ -30,14 +35,17 @@ export default function Builder(props) {
     .catch(err => console.log(err))
   }
 
-
+  const setPose = selectedPose=> {
+    console.log(selectedPose)
+    setState({ ...state, selectedPose });
+  }
 
 
   return (
     <div id="builder">
       <main className='flexbox'>
         <Board id="board_1" className="board">
-          <Cardlist id="cardlist_1" className="card-list" poses={props.poses}/>
+          <Cardlist id="cardlist_1" className="card-list" poses={props.poses} setPose={setPose}/>
         </Board>
         <Board id="board_2" className="board">
         </Board>
@@ -45,11 +53,11 @@ export default function Builder(props) {
 
       <div className="picc">
         <div className='picture'>
-          Picture!
+        <img src={state.selectedPose.icon}></img>
         </div>
         <div
           className='picture'>
-          Description Box!
+          {state.selectedPose.description}
         </div>
 
         <section className='but'>

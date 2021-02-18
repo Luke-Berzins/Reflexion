@@ -19,7 +19,9 @@ export default function Session(props) {
     params: {
       session: id
     }
-  }).then(res => {
+  })
+  .then(res => {
+    console.log("hi")
     const poseList = res.data.map(object => {
       return object.pose_id
     })
