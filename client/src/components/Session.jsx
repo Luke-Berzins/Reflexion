@@ -5,44 +5,47 @@ import axios from "axios";
 import "./Session.scss"
 import VoiceDetection from './VoiceDetection';
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 
 export default function Session(props) {
 
   const [state, setState] = useState({
+    poseArray : [],
     currentPose: {}
   })
   let { id } = useParams();
-  axios.get("/api/sequence_pose/build", {
-    params: {
-      session: id
-    }
-  })
-  .then(res => {
-    console.log("hi")
-    const poseList = res.data.map(object => {
-      return object.pose_id
-    })
-    return poseList;
-  }).catch(error => {
-    console.log(error)
-  })
-  .then(result => {
-
+  let poseArray = [];
+  const setList = id => {
     axios.get("/api/poses/build", {
       params: {
-        session: result
+        session: id
       }
-    }).then(response => {
-      const firstPose = response.data['1']
-      setState({currentPose: firstPose});
-
     })
-  }).catch(error => {
-    console.log(error)
-  })
+    .then(res => {
+      console.log("RES", res.data)
+      poseArray = res.data;
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
+  useEffect(() => {
+    Promise.all([
+      axios.get("/api/poses/build", {
+        params: {
+          session: id
+        }
+      })
+    ]).then((all) => {
+      setState(prev => ({...prev, poseArray: all[0].data, currentPose: all[0].data[0] }));
+    })
+  }, []);
+
+
+
+
   const videoConstraints = {
     facingMode: "user",
     width:  { min: 1280 },
@@ -51,7 +54,7 @@ export default function Session(props) {
 
   return (
 
-    <div id="session" className="animate__animated animate__fadeIn">
+    <div id="session" onload="setList(id)" className="animate__animated animate__fadeIn">
 
       <div className="voice-detection">
        <VoiceDetection />

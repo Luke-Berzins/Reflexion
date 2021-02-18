@@ -23,36 +23,18 @@ module.exports = (db) => {
       });
   });
   router.get("/build", (req, res) => {
-    let poseList = req.query.session;
+    let session_id = req.query.session;
 
-    const sqlFormatter = (posesFormat) => {
-      let result = `(`
-      posesFormat.forEach(pose => {
-        result += pose + `, `;
-      })
-      result = result.substring(0, result.length - 2);
-      result += `)`
-      return result
-    }
-    let sqlList = sqlFormatter(poseList)
     let query = `SELECT * FROM poses
-    WHERE id in ${sqlList}
+    JOIN sequence_pose ON poses.id = pose_id
+    JOIN sequences ON sequence_id = sequences.id
+    WHERE sequences.id = ${session_id}
+    ORDER BY position;
     ;`;
     db.query(query)
       .then(data => {
-        let indexObj = {}
-        let counter = 1;
-        poseList.forEach(poseOrder => {
-          poseOrder *= 1;
-          indexObj[counter] = data.rows.filter(pose => {
-           return pose.id === poseOrder
-          })[0]
-          counter++
-        })
-        return indexObj;
-      })
-      .then(data => {
-        res.send(data)
+        console.log(data.rows)
+        res.send(data.rows)
       })
       .catch(err => {
         res
