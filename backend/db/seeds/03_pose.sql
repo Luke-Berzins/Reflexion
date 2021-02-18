@@ -1,8 +1,8 @@
 INSERT INTO poses (name, icon, video, description, overlay)
-VALUES ('Tadasana (Mountain Pose)', 'https://i.imgur.com/Mj1AaHi.png', 'https://www.youtube.com/watch?v=mnlmJjt1KNw', 'Tadasana (Mountain Pose): A common starting pose, tadasana improves overall posture by increasing bodily awareness. Engages abdominal and back muscles. Easily transition from tadasana to other standing poses.', 'https://i.imgur.com/5EXVHFh.png');
+VALUES ('Tadasana (Mountain Pose)', 'https://i.imgur.com/Mj1AaHi.png', 'https://www.youtube.com/watch?v=aXaPTiBpp5U', 'Tadasana (Mountain Pose): A common starting pose, tadasana improves overall posture by increasing bodily awareness. Engages abdominal and back muscles. Easily transition from tadasana to other standing poses.', 'https://i.imgur.com/5EXVHFh.png');
 
 INSERT INTO poses (name, icon, video, description, overlay)
-VALUES ('Vrksasana (Tree Pose)', 'https://i.imgur.com/kY5JIJv.png', 'https://www.youtube.com/watch?v=Fr5kiIygm0c', 'Recommended after mountain pose. Vrksasana (Tree Pose) strengthens legs, hips, glutes and obliques, and helps to improve your balance over time.', '../img/overlays/vrksasana.png');
+VALUES ('Vrksasana (Tree Pose)', 'https://i.imgur.com/kY5JIJv.png', 'https://www.youtube.com/watch?v=Fr5kiIygm0c', 'Recommended after mountain pose. Vrksasana (Tree Pose) strengthens legs, hips, glutes and obliques, and helps to improve your balance over time.', 'https://i.imgur.com/oroiav3.png');
 
 INSERT INTO poses (name, icon, video, description, overlay)
 VALUES ('Utkatasana (Chair Pose)', 'https://i.imgur.com/dpPOtoA.png', 'https://www.youtube.com/watch?v=tEZhXr0FuAQ', 'Excellent pose for developing balance, and for improving core strength while challenging your quads.', 'https://i.imgur.com/0rIfXhE.png');
