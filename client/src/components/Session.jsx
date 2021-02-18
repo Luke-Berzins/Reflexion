@@ -16,20 +16,6 @@ export default function Session(props) {
     currentPose: {}
   })
   let { id } = useParams();
-  let poseArray = [];
-  const setList = id => {
-    axios.get("/api/poses/build", {
-      params: {
-        session: id
-      }
-    })
-    .then(res => {
-      console.log("RES", res.data)
-      poseArray = res.data;
-    }).catch(error => {
-      console.log(error)
-    })
-  }
 
   useEffect(() => {
     Promise.all([
@@ -54,7 +40,7 @@ export default function Session(props) {
 
   return (
 
-    <div id="session" onload="setList(id)" className="animate__animated animate__fadeIn">
+    <div id="session" className="animate__animated animate__fadeIn">
 
       <div className="voice-detection">
        <VoiceDetection />
