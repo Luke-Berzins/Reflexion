@@ -4,6 +4,7 @@ public/styles
 *.log
 *.sqlite3
 #voice modules
-/client/public/model/metadata.json
-/client/public/model/model.json
-/client/public/model/weights.bin
+client/public/model/metadata.json
+client/public/model/model.json
+client/public/model/weights.bin
+debug.log
