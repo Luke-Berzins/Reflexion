@@ -7,11 +7,11 @@ import { useState } from "react";
 import { useCookies } from 'react-cookie';
 
 export default function Builder(props) {
-
   const [cookies, setCookie] = useCookies(['name', 'id']);
   const [state, setState] = useState({
     selectedPose: {},
-    sequenceName: "Title Your Session!"
+    sequenceName: "Title Your Session!",
+    show: false,
   })
 
   const generateSequence = () => {
@@ -49,6 +49,17 @@ export default function Builder(props) {
   const handleInputChange = e => {
     setState({...state, sequenceName: e.target.value})
   }
+
+  if(state.show === false) return (
+    <div id="initial">
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <button className="btn btn-primary btn-lg btn-block" onClick={() => setState({...state, show: true})}>Click Here To Get Started!</button>
+    </div>
+  )
 
   return (
 
