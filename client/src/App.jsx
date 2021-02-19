@@ -17,6 +17,7 @@ import Session from './components/Session';
 import Builder from './components/Builder';
 import Nav from './components/Nav';
 import About from './components/About';
+import Yoursessions from './components/Yoursessions';
 
 function App() {
   const [cookies, setCookie] = useCookies(['name']);
@@ -41,6 +42,9 @@ function App() {
         <Switch>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/yoursessions">
+            <Yoursessions />
           </Route>
           <Route path="/builder" >
             <Builder poses={state.poses} />
