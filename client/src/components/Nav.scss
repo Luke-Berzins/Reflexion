@@ -2,10 +2,11 @@
 
 #mainNav {
   font-family: 'Raleway', sans-serif !important;
-  background-image: -webkit-gradient(
-    linear, left top, left bottom, from(whitesmoke),
-    to(transparent), color-stop(.8,whitesmoke)
-  );
+  background-image: url('../img/bg-nav.png')
+  // background-image: -webkit-gradient(
+  //   linear, left top, left bottom, from(whitesmoke),
+  //   to(transparent), color-stop(.8,whitesmoke)
+  // );
 }
 
 .navbar {
