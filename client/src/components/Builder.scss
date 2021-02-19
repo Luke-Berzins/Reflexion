@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+#initial {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../img/bg-builder-m.png');
+}
 #builder {
   background-image: url('../img/bg-masthead-2.png');
   background-size: cover;
