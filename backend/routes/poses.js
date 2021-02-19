@@ -24,13 +24,13 @@ module.exports = (db) => {
   });
   router.get("/build", (req, res) => {
     let session_id = req.query.session;
-
+    console.log(req.query.session)
     let query = `SELECT * FROM poses
     JOIN sequence_pose ON poses.id = pose_id
     JOIN sequences ON sequence_id = sequences.id
     WHERE sequences.id = ${session_id}
     ORDER BY position;
-    ;`;
+    `;
     db.query(query)
       .then(data => {
         console.log(data.rows)

@@ -48,6 +48,7 @@ module.exports = (db) => {
     let query = `DELETE FROM sequences
     WHERE id = ${sequenceID}
     ;`;
+    console.log(query);
     db.query(query)
       .catch(err => {
         res
@@ -64,6 +65,7 @@ module.exports = (db) => {
     `,
       [req.body.user_id, req.body.name]
     ).then(response => {
+      console.log(response)
       res.send(response)
     })
   });

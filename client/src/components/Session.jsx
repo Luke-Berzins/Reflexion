@@ -67,6 +67,7 @@ export default function Session(props) {
         }
       })
     ]).then((all) => {
+      console.log(all[0].data)
       setState(prev => ({...prev, poseArray: all[0].data, currentPose: all[0].data[0] }));
     })
   }, [id]);
