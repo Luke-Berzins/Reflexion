@@ -43,6 +43,19 @@ module.exports = (db) => {
       });
   });
 
+  router.delete("/", (req, res) => {
+    const sequenceID = req.query.sequence
+    let query = `DELETE FROM sequences
+    WHERE id = ${sequenceID}
+    ;`;
+    db.query(query)
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
   router.post("/", (req, res) => {
     db.query(
       `INSERT INTO sequences (user_id, name)

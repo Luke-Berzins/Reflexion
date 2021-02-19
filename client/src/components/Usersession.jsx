@@ -2,10 +2,11 @@ import {useState, useEffect} from "react"
 import axios from "axios"
 import "./Usersession.scss"
 
-const deleteSession = sessionID => {
-  axios.get("/api/poses/build", {
+const deleteSession = sequenceID => {
+  document.getElementById(sequenceID).style.display = "none"
+  axios.delete("/api/sequences", {
     params: {
-      session: "JOHNNY"
+      sequence: sequenceID
     }
   })
 }
@@ -17,11 +18,11 @@ export default function Usersession(props) {
 
    if (state.transition === 'delete') {
     return (
-      <div className='usersession startconfirm'>
+      <div className='usersession' id={props.id}>
         <h1>{props.name}</h1>
         <h1>Are you sure you want to delete?</h1>
         <div className='buttons'>
-        <button className="btn btn-danger" type='submit'>Delete</button>
+        <button className="btn btn-danger" type='submit' onClick={() => deleteSession(props.id)}>Delete</button>
         <button className="btn btn-info" type='submit' onClick={() => setState({transition: null})}>Cancel</button>
         </div>
       </div>
@@ -34,7 +35,6 @@ export default function Usersession(props) {
         <h1>{props.name}</h1>
         <h1>Ready to Start?</h1>
         <div className='buttons'>
-
         <button className="btn btn-info" onClick={() => window.location=`/session/${props.id}`}>Start</button>
         <button className="btn btn-info" type='submit' onClick={() => setState({transition: null})}>Cancel</button>
         </div>
