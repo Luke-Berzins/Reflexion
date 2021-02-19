@@ -24,13 +24,32 @@ module.exports = (db) => {
       });
   });
 
+  router.get("/personal", (req, res) => {
+    const sessionUser = req.query.user
+    let query = `SELECT * FROM sequences
+    WHERE user_id = ${sessionUser}
+    ;`;
+    console.log(query);
+    db.query(query)
+      .then(data => {
+        console.log(data.rows)
+        const sequences = data.rows;
+        res.json({ sequences });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
   router.post("/", (req, res) => {
     db.query(
-      `INSERT INTO sequences (name)
-       VALUES ($1::text)
+      `INSERT INTO sequences (user_id, name)
+       VALUES ($1::integer, $2::text)
        RETURNING id;
     `,
-      [req.body.name]
+      [req.body.user_id, req.body.name]
     ).then(response => {
       res.send(response)
     })

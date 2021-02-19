@@ -1,26 +1,29 @@
 import React from 'react'
 import Board from './Board'
-import Card from './Card'
 import Cardlist from './Cardlist'
 import axios from "axios";
 import "./Builder.scss"
 import { useState } from "react";
-
+import { useCookies } from 'react-cookie';
 
 export default function Builder(props) {
 
+  const [cookies, setCookie] = useCookies(['name', 'id']);
   const [state, setState] = useState({
-    selectedPose: {}
+    selectedPose: {},
+    sequenceName: "untitled"
   })
 
   const generateSequence = () => {
+    console.log(cookies.id)
     const list = document.getElementById('board_2').children
     const poseArray = [...list].map(x => x.id.split('').pop() * 1)
-    if (poseArray === 0) {
+    if (list.length === 0) {
       return;
     }
     axios.post('/api/sequences', {
-      name: "JIMMY",
+      user_id: cookies.id,
+      name: state.sequenceName,
     })
     .then(res => {
       const seqID = res.data.rows[0].id
@@ -43,6 +46,9 @@ export default function Builder(props) {
     setState({ ...state, selectedPose });
   }
 
+  const handleInputChange = e => {
+    setState({...state, sequenceName: e.target.value})
+  }
 
   return (
 
@@ -58,6 +64,7 @@ export default function Builder(props) {
 
       <div className="picc">
         <div className='picture'>
+          <h3>{state.selectedPose.name}</h3>
         {state.selectedPose.photo ? <img src={state.selectedPose.photo}></img> : <p>Please drag a pose to the build square to build your session. Click on any pose for more information</p>}
         </div>
         <div
@@ -66,6 +73,8 @@ export default function Builder(props) {
         </div>
 
         <section className='but'>
+          <h1>{state.sequenceName}</h1>
+          <input name="sequenceName" type="sequenceName" className="form-control" id="sequenceName"  onChange={handleInputChange}/>
           <button type="button" class="btn btn-primary btn-lg" onClick={generateSequence} >Build!</button>
         </section>
       </div>
