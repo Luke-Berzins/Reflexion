@@ -1,7 +1,6 @@
 import React from 'react'
 
 function Card (props) {
-  const selectedDay = props.name;
   const dragStart = e => {
 
     const target = e.target;
@@ -26,6 +25,7 @@ function Card (props) {
       onClick={() => props.setPose(props.poseInfo)}
     >
       <p><b>{props.name}</b></p>
+      <img className="cardImage" src={props.poseInfo.icon}></img>
     </div>
   )
 }
