@@ -7,15 +7,57 @@ import VoiceDetection from './VoiceDetection';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+function VideoPlayer(props) {
+  const [show, setShow] = useState(false);
+  const { video, delay } = props;
 
+  useEffect(() => {
+    if(delay) {
+      const timeout = setTimeout(() => {
+        setShow(true);
+      }, delay);
 
+      return () => clearTimeout(timeout);
+    } else {
+      setShow(true);
+    }
+  }, [delay])
+
+  if(show === false) return null;
+
+  return <div id="video-embed" className="video-embed animate__animated animate__fadeIn animate__slower animate__delay-3s">
+      <ReactPlayer
+        playing
+        url={video}
+      />
+    </div>
+}
+
+// let counter = 0
 export default function Session(props) {
 
   const [state, setState] = useState({
     poseArray : [],
-    currentPose: {}
+    poseIndex: 0,
+    pageView: false
   })
   let { id } = useParams();
+
+  const startSequence = () => {
+    setState(prev => ({...prev, pageView: true}))
+  }
+
+  const poseIncrementer = (direction) => {
+    setState((prev) => {
+      let nextPoseIndex = prev.poseIndex;
+
+      if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
+        nextPoseIndex += direction;
+      }
+
+      return ({...prev, poseIndex: nextPoseIndex})
+    })
+  }
 
   useEffect(() => {
     Promise.all([
@@ -27,12 +69,7 @@ export default function Session(props) {
     ]).then((all) => {
       setState(prev => ({...prev, poseArray: all[0].data, currentPose: all[0].data[0] }));
     })
-  }, []);
-
-  const increment = (value) => {
-    setState(prev => ({...prev, currentPose: state.poseArray[variable + value]}));
-  }
-
+  }, [id]);
 
   const videoConstraints = {
     facingMode: "user",
@@ -40,46 +77,38 @@ export default function Session(props) {
     height: { min: 100 },
   };
 
-  return (
+  const currentPose = state.poseArray[state.poseIndex];
 
-    <div id="session" className="animate__animated animate__fadeIn">
 
-      <div className="voice-detection">
-       <VoiceDetection />
-      </div>
-
-      <div id="video-embed" className="video-embed animate__animated animate__fadeIn animate__slower animate__delay-3s">
-
-        <ReactPlayer
-          playing
-          url={state.currentPose.video}
-        />
-
-      </div>
-    <div className="pose-cam-container animate__animated animate__fadeIn animate__slower animate__delay-2s">
-      <div className="overlay">
-        <img src={state.currentPose.overlay} alt="overlay" style={{opacity: 0.75}} />
-        {/* <img src='https://i.imgur.com/xjorBOU.png' alt="overlay" style={{opacity: 0.75}} /> */}
-      </div>
-        <div id="video-container">
-
-          <center>
-          <Webcam
-            style = { { width: 'auto', height: '99vh', } }
-            mirrored         = { true }
-            audio            = { false }
-            width            = { 1280 }
-            height           = { 720 }
-            videoConstraints = { videoConstraints }
-          />
-          </center>
-
+    return (
+      <div id="session" onload="setList(id)" className="animate__animated animate__fadeIn">
+        <div className="voice-detection">
+         { state.pageView ?
+            <VoiceDetection poseIncrementer={ poseIncrementer }/> :
+            <VoiceDetection startSequence={ startSequence } /> }
         </div>
-        <div>
-          <h1> !! {state.currentPose.video} !!</h1>
+        { state.pageView && <>
+          <VideoPlayer video={currentPose.video} delay={2500} />
 
+      <div className="pose-cam-container animate__animated animate__fadeIn animate__slower animate__delay-2s">
+        <div className="overlay">
+          <img src={currentPose.overlay} alt="overlay" style={{opacity: 0.75}} />
         </div>
+
+          <div id="video-container">
+            <center>
+            <Webcam
+              style = { { width: 'auto', height: '99vh', } }
+              mirrored         = { true }
+              audio            = { false }
+              width            = { 1280 }
+              height           = { 720 }
+              videoConstraints = { videoConstraints }
+            />
+            </center>
+          </div>
+        </div></> }
       </div>
-    </div>
-  );
+    );
+
 }

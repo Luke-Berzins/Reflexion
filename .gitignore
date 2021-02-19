@@ -7,3 +7,4 @@ public/styles
 client/public/model/metadata.json
 client/public/model/model.json
 client/public/model/weights.bin
+debug.log
