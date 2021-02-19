@@ -16,6 +16,9 @@ export default function Builder(props) {
   const generateSequence = () => {
     const list = document.getElementById('board_2').children
     const poseArray = [...list].map(x => x.id.split('').pop() * 1)
+    if (poseArray === 0) {
+      return;
+    }
     axios.post('/api/sequences', {
       name: "JIMMY",
     })
@@ -55,7 +58,7 @@ export default function Builder(props) {
 
       <div className="picc">
         <div className='picture'>
-        {state.selectedPose.photo ? <img src={state.selectedPose.photo}></img> : <p>Hello</p>}
+        {state.selectedPose.photo ? <img src={state.selectedPose.photo}></img> : <p>Please drag a pose to the build square to build your session. Click on any pose for more information</p>}
         </div>
         <div
           className='description'>
@@ -63,7 +66,7 @@ export default function Builder(props) {
         </div>
 
         <section className='but'>
-          <button type="button" class="btn btn-primary btn-lg" onClick={generateSequence} onChange={e => props.onChange(7)}>Build!</button>
+          <button type="button" class="btn btn-primary btn-lg" onClick={generateSequence} >Build!</button>
         </section>
       </div>
     </div>
