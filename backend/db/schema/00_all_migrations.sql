@@ -31,11 +31,10 @@ CREATE TABLE poses (
 
 CREATE TABLE sequence_pose (
   id SERIAL PRIMARY KEY NOT NULL,
-  sequence_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  sequence_id INTEGER REFERENCES sequences(id),
   pose_id INTEGER REFERENCES poses(id),
   position INT NOT NULL
 );
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO labber;
 ALTER USER labber WITH Superuser;
-
