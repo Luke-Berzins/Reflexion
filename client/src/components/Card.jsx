@@ -25,7 +25,7 @@ function Card (props) {
       onClick={() => props.setPose(props.poseInfo)}
     >
       <p><b>{props.name}</b></p>
-      <img className="cardImage" src={props.poseInfo.icon}></img>
+      <img className="cardImage" src={props.poseInfo.icon} alt="icon" width="70" height="70"></img>
     </div>
   )
 }
