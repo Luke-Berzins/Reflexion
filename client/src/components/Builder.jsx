@@ -11,7 +11,7 @@ export default function Builder(props) {
   const [cookies, setCookie] = useCookies(['name', 'id']);
   const [state, setState] = useState({
     selectedPose: {},
-    sequenceName: "untitled"
+    sequenceName: "Title Your Session!"
   })
 
   const generateSequence = () => {
@@ -75,7 +75,7 @@ export default function Builder(props) {
         <section className='but'>
           <h1>{state.sequenceName}</h1>
           <input name="sequenceName" type="sequenceName" className="form-control" id="sequenceName"  onChange={handleInputChange}/>
-          <button type="button" class="btn btn-primary btn-lg" onClick={generateSequence} >Build!</button>
+          <button type="button" className="btn btn-secondary btn-lg" onClick={generateSequence} >Build!</button>
         </section>
       </div>
     </div>
