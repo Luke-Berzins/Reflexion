@@ -57,7 +57,7 @@ export default function Builder(props) {
       <br></br>
       <br></br>
       <br></br>
-      <button className="btn btn-primary btn-lg btn-block" onClick={() => setState({...state, show: true})}>Click Here To Get Started!</button>
+      <button className="btn btn-primary btn-lg btn-block" onClick={() => setState({...state, show: true})}>Build your Reflexion</button>
     </div>
   )
 
