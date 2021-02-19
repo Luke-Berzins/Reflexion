@@ -4,14 +4,15 @@ import UsersessionList from './UsersessionList'
 export default function Yoursessions(props) {
 
   return (
-    <div className="yoursessions">
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <div className="sessionList">
-      <h1>Your Sessions:</h1>
-      <UsersessionList />
+    <div id="sessions-wrapper">
+      <div className="yourSessions">
+        <div className="sessionList">
+        <h1>Your Sessions:</h1>
+        <br></br>
+        <br></br>
+        <UsersessionList />
+        <br></br>
+        </div>
       </div>
     </div>
   );
