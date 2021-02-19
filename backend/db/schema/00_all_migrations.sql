@@ -24,7 +24,8 @@ CREATE TABLE poses (
   icon VARCHAR(255) NOT NULL,
   video VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL,
-  overlay VARCHAR(255) NOT NULL
+  overlay VARCHAR(255) NOT NULL,
+  photo VARCHAR(255) NOT NULL
 );
 
 
