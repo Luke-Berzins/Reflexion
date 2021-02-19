@@ -46,8 +46,8 @@ export default function Builder(props) {
 
   return (
 
-
     <div id="builder">
+
       <main className='flexbox'>
         <Board id="board_1" className="board">
           <Cardlist id="cardlist_1" className="card-list" poses={props.poses} setPose={setPose}/>
