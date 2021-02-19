@@ -5,24 +5,30 @@
 }
 
 #initial {
-  height: 100vh;
-  width: 100vw;
   background-image: url('../img/bg-builder-m.png');
+  background-size: cover;
+  width:100%;
+  height:100vh;
+  button {
+    margin-left: 48vw;
+    margin-top: 220px;
+    background-color: #343434;
+    border: none;
+  }
 }
+
 #builder {
   background-image: url('../img/bg-masthead-2.png');
   background-size: cover;
-  width:100%;
-  height:100%;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: flex-start;
   font-family: 'Raleway', sans-serif !important;
-
 }
 .flexbox {
   display: flex;
   justify-content: space-between;
-
   width: 100%;
   max-width: 768px;
   height: 100vh;

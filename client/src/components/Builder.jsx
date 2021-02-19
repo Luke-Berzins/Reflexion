@@ -52,12 +52,8 @@ export default function Builder(props) {
 
   if(state.show === false) return (
     <div id="initial">
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <button className="btn btn-primary btn-lg btn-block" onClick={() => setState({...state, show: true})}>Click Here To Get Started!</button>
+
+      <button className="btn btn-primary btn-lg " onClick={() => setState({...state, show: true})}>Begin</button>
     </div>
   )
 

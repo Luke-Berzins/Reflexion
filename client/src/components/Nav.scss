@@ -2,12 +2,15 @@
 
 #mainNav {
   font-family: 'Raleway', sans-serif !important;
-  background-color: #00172b;
+  background-image: url('../img/bg-nav.png')
+  // background-image: -webkit-gradient(
+  //   linear, left top, left bottom, from(whitesmoke),
+  //   to(transparent), color-stop(.8,whitesmoke)
+  // );
 }
 
 .navbar {
-  background: transparent;
-  height: 80px;
+  height: 87px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -20,9 +23,11 @@
   display: block;
   padding: 0.5rem 1rem;
 }
+
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
 }
+
 .nav-link.disabled {
   color: #6c757d;
   pointer-events: none;
@@ -45,6 +50,7 @@
   line-height: inherit;
   white-space: nowrap;
 }
+
 .navbar-brand:hover, .navbar-brand:focus {
   text-decoration: none;
 }
