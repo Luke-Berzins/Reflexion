@@ -33,7 +33,7 @@ function VideoPlayer(props) {
     </div>
 }
 
-// let counter = 0
+
 export default function Session(props) {
 
   const [state, setState] = useState({

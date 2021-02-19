@@ -7,8 +7,8 @@
 #builder {
   background-image: url('../img/bg-masthead-2.png');
   background-size: cover;
-  width:119rem;
-  height:65rem;
+  width:100%;
+  height:100%;
   display: flex;
   justify-content: flex-start;
   font-family: 'Raleway', sans-serif !important;
@@ -20,7 +20,7 @@
 
   width: 100%;
   max-width: 768px;
-  height: 100vh;
+  height: 85vh;
   overflow: hidden;
   margin: 0 auto;
   padding: 15px;
@@ -30,19 +30,18 @@
 .flexbox .board {
   display: flex;
   flex-direction: column;
-
   width: 100%;
   max-width: 300px;
-  opacity: 0.5;
-  background-color: #e6e4e4;
+  // opacity: 0.5;
+  // background-color: #202020;
+  background-color: rgba(233, 233, 233, 0.5);
   padding: 15px;
   overflow: scroll;
 }
 
 .flexbox .board .card {
-
   padding: 15px 25px;
-  background-color: rgb(153, 153, 229);
+  background-color: white;
   cursor: pointer;
   margin-bottom: 15px;
 }
@@ -95,3 +94,13 @@
   font-size: 1em !important;
 }
 
+.cardImage {
+  width: 50%;
+  background-color: #e6e4e4;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
