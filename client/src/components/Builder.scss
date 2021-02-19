@@ -45,12 +45,19 @@
   cursor: pointer;
   margin-bottom: 15px;
   text-align: center;
-  height: 13em;
+  height: 11em;
   display: flex;
   align-items: center;
   justify-content: center
 }
 #board_2 {
+  border-style: inset;
+}
+
+.flexbox .board .card:hover {
+  background-color: rgba(203, 181, 255, 0.2);
+}
+#board_1 {
   border-style: inset;
 }
 
@@ -62,7 +69,7 @@
 .picc {
   display:flex;
   flex-direction:column;
-  padding-top: 5%;
+  padding-top: 8%;
   padding-right: 18%;
 
 
@@ -74,7 +81,7 @@
     // background-color:#e6e4e4;
     background-color: rgb(253, 253, 253, 0.5);
     margin-top: 6%;
-    padding-top: 150px;
+    // padding-top: 150px;
     text-align: center;
   }
 
@@ -84,15 +91,14 @@
     height:200px;
     border:1px solid rgb(235, 225, 225);
     // background-color:#e6e4e4;
-    background-color: rgb(253, 253, 253, 0.7);
+    background-color: rgb(253, 253, 253, 0.5);
 
-    margin-top: 6%;
+    margin-top: 10%;
     font-family: 'Raleway', sans-serif !important;
     text-align: left;
-    padding-top: 25px;
+    padding-top: 30px;
     padding-left: 15px;
     padding-right: 10px;
-    overflow: scroll;
     font-size: large;
   }
   .but {
