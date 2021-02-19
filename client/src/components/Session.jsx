@@ -29,13 +29,15 @@ export default function Session(props) {
     })
   }, []);
 
-
+  const increment = (value) => {
+    setState(prev => ({...prev, currentPose: state.poseArray[variable + value]}));
+  }
 
 
   const videoConstraints = {
     facingMode: "user",
-    width:  { min: 1280 },
-    height: { min: 720 },
+    width:  { min: 100 },
+    height: { min: 100 },
   };
 
   return (

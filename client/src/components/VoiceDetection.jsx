@@ -15,7 +15,7 @@ function VoiceDetection() {
   // more documentation available at
   // https://github.com/tensorflow/tfjs-models/tree/master/speech-commands
   // the link to your model provided by Teachable Machine export panel
-  const URL = "http://localhost:3002/model/";
+  const URL = "http://localhost:8000/model/";
   async function createModel() {
     const checkpointURL = URL + "model.json"; // model topology
     const metadataURL = URL + "metadata.json"; // model metadata
