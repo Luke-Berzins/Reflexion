@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#voice modules
+/client/public/model/metadata.json
+/client/public/model/model.json
+/client/public/model/weights.bin
