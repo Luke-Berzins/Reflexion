@@ -55,7 +55,7 @@ export default function Builder(props) {
 
       <div className="picc">
         <div className='picture'>
-        {state.selectedPose.icon ? <img src={state.selectedPose.icon}></img> : <img src={state.selectedPose.icon}></img>}
+        {state.selectedPose.photo ? <img src={state.selectedPose.photo}></img> : <p>Hello</p>}
         </div>
         <div
           className='description'>
