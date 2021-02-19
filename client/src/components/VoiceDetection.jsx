@@ -24,9 +24,11 @@ import './VoiceDetection.scss'
 
 function VoiceDetection(props) {
 
-    useEffect(() => {
+  const { poseIncrementer, startSequence } = props;
 
-      let recognizer;
+  useEffect(() => {
+
+    let recognizer;
 
       createModel().then((model) => {
 
@@ -36,7 +38,6 @@ function VoiceDetection(props) {
           // console.log(result)
 
         const scores = result.scores; // probability of prediction for each class
-                // render the probability scores per class
 
         const classLabels = recognizer.wordLabels();
         const allPredictions = []
@@ -48,19 +49,24 @@ function VoiceDetection(props) {
         }
 
         allPredictions.sort((a, b) => b.probability - a.probability)
-        // console.log(allPredictions);
+        const match = allPredictions[0].word.toLowerCase();
+
+        if (match === 'next' && poseIncrementer) {
+          poseIncrementer(1)
+        }
+        if (match === 'begin' && startSequence) {
+          startSequence();
+        }
+        if (match === 'previous' && poseIncrementer) {
+          poseIncrementer(-1)
+        }
+
         }, {
             includeSpectrogram: true, // in case listen should return result.spectrogram
             probabilityThreshold: 0.75,
             invokeCallbackOnNoiseAndUnknown: true,
             overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
         });
-
-        // Stop the recognition in 5 seconds.
-        // setTimeout(() => recognizer.stopListening(), 5000);
-
-
-
       });
 
       return () => {
@@ -69,24 +75,15 @@ function VoiceDetection(props) {
         }
       };
 
-    }, [])
+    }, [poseIncrementer, startSequence])
 
   return (
     <div className="seq-nav">
       <div className='seq-nav-buttons'>
-        <button onClick={() => props.poseIncrementer(200)} type="button" className="btn btn-primary">PREVIOUS</button>
+        <button onClick={() => props.poseIncrementer(-1)} type="button" className="btn btn-primary">PREVIOUS</button>
         <button onClick={() => props.startSequence()} type="button" className="btn btn-primary">START</button>
-        <button onClick={() => props.poseIncrementer(100)} type="button" className="btn btn-primary">NEXT</button>
+        <button onClick={() => props.poseIncrementer(1)} type="button" className="btn btn-primary">NEXT</button>
       </div>
-
-
-      {/* {(heard && heard[0].word) === "Next" && <h1>I HEARD Next</h1>}
-      {(heard && heard[0].word) === "Begin" && <h1>I HEARD Begin</h1>}
-      {(heard && heard[0].word) === "Stop" && <h1>I HEARD Stop</h1>}voiceNavigationvoiceNavigation
-      {(heard && heard[0].word) === "Previous" && <h1>I HEARD previous</h1>}
-      {(heard && heard[0].word) === "Go Back" && <h1>I HEARD Go Back</h1>}
-       */}
-
     </div>
   );
 }
