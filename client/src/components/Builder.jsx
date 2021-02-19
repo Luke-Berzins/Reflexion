@@ -57,7 +57,7 @@ export default function Builder(props) {
       <br></br>
       <br></br>
       <br></br>
-      <button className="btn btn-primary btn-lg " onClick={() => setState({...state, show: true})}>Begin</button>
+      <button className="btn btn-info btn-lg " onClick={() => setState({...state, show: true})}>Begin</button>
     </div>
   )
 

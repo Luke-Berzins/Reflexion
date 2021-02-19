@@ -6,10 +6,11 @@
 
 #initial {
   background-image: url('../img/bg-builder-m.png');
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
-  align-items: center;
+  // background-size: cover;
+  width:100%;
+  height:100vh;
+  // align-items: center;
+
   button {
     margin-left: 48vw;
     // padding-left: 20px;
@@ -18,19 +19,20 @@
 #builder {
   background-image: url('../img/bg-masthead-2.png');
   background-size: cover;
-  height: 100vh;
-  width: 100vw;
+  width:100%;
+  height:100vh;
   display: flex;
   justify-content: flex-start;
   font-family: 'Raleway', sans-serif !important;
+
 }
 .flexbox {
   display: flex;
   justify-content: space-between;
 
   width: 100%;
-  max-width: 768px;
   height: 100vh;
+  max-width: 768px;
   overflow: hidden;
   margin: 0 auto;
   padding: 15px;
@@ -41,7 +43,9 @@
   padding-top: 160px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  // width: 100%;
+  width:100%;
+  height:80vh;
   max-width: 270px;
   // opacity: 0.5;
   // background-color: #202020;
@@ -125,6 +129,7 @@
 
     h1 {
       color: rgb(192, 192, 187);
+      // font-size: x-small;
     }
 
     input {
