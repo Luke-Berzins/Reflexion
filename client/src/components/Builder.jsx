@@ -53,7 +53,8 @@ export default function Builder(props) {
 
       <div className="picc">
         <div className='picture'>
-        <img src={state.selectedPose.icon}></img>
+        {state.selectedPose.icon ? <img src={state.selectedPose.icon}></img> : <h2>Welcome!
+          Click on a pose to get more information. Drag and drop the poses in your sequence, and when you're ready hit build!</h2>}
         </div>
         <div
           className='description'>
