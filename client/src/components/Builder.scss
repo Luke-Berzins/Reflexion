@@ -32,7 +32,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 300px;
+  max-width: 270px;
   // opacity: 0.5;
   // background-color: #202020;
   background-color: rgba(233, 233, 233, 0);
@@ -71,8 +71,8 @@
   padding-top: 160px;
   display:flex;
   flex-direction:column;
-  padding-top: 8%;
-  padding-right: 18%;
+  padding-top: 6%;
+  padding-right: 16%;
 
 
   .picture {
@@ -85,6 +85,11 @@
     margin-top: 6%;
     // padding-top: 150px;
     text-align: center;
+
+    h3 {
+      font-family: 'Raleway', sans-serif !important;
+      padding-top: 2px;
+    }
   }
 
 
@@ -106,7 +111,18 @@
   .but {
 
     margin-top: 5%;
-    margin-left: 520px;
+    // margin-left: 250px;
+
+    h1 {
+      color: rgb(192, 192, 187);
+    }
+
+    input {
+      margin-bottom: 10px;
+    }
+    button {
+      margin-left: 520px;
+    }
   }
 }
 

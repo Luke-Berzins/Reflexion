@@ -10,7 +10,7 @@ export default function Yoursessions(props) {
       <br></br>
       <br></br>
       <div className="sessionList">
-
+      <h1>Your Sessions:</h1>
       <UsersessionList />
       </div>
     </div>

@@ -3,12 +3,13 @@ import {useState, useEffect} from "react"
 
 export default function Usersession(props) {
   return (
-    <div>
+    <div className='usersession'>
 
-      <br></br>
-      <br></br>
       <h1>{props.name}</h1>
-      <button onClick={() => window.locatio= `/session/${props.id}`}>Start</button>
+      <div>
+        <button className="btn btn-info" onClick={() => window.locatio= `/session/${props.id}`}>Start</button>
+        <button className="btn btn-danger" type='submit'>Delete</button>
+      </div>
     </div>
   )
 }

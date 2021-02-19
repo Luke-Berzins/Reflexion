@@ -1,3 +1,19 @@
 .sessionList {
   background-color: white;
+  padding-left: 300px;
+  padding-top: 50px;
+  padding-right: 300px;
+  background-image: url('../img/bg-masthead-m.jpg');
+  font-family: 'Raleway', sans-serif !important;
+  background-size: cover;
+  width:100%;
+  height:100%;
+
+
+  .usersession {
+
+    color: rgb(114, 112, 112);
+    display: flex;
+    justify-content: space-between;
+  }
 }
