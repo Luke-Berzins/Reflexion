@@ -2,10 +2,14 @@
 
 #mainNav {
   font-family: 'Raleway', sans-serif !important;
+  background-image: -webkit-gradient(
+    linear, left top, left bottom, from(whitesmoke),
+    to(transparent), color-stop(.8,whitesmoke)
+  );
 }
 
 .navbar {
-  height: 80px;
+  height: 87px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

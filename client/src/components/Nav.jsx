@@ -1,4 +1,5 @@
-import logo from '../img/logo-small.png'
+import './Nav.scss';
+import logo from '../img/logo-small.png';
 import {
   BrowserRouter as Router,
   Switch,
