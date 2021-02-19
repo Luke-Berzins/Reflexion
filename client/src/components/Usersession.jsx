@@ -9,7 +9,7 @@ export default function Usersession(props) {
       <br></br>
       <br></br>
       <h1>{props.name}</h1>
-      <button onClick={() => window.location = `/session/${props.id}`}>Start</button>
+      <button className='start-button' onClick={() => window.location = `/session/${props.id}`}>Start</button>
 
     </div>
   )
