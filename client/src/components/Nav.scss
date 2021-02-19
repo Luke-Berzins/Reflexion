@@ -2,11 +2,9 @@
 
 #mainNav {
   font-family: 'Raleway', sans-serif !important;
-  background-color: #00172b;
 }
 
 .navbar {
-  background: transparent;
   height: 80px;
   display: flex;
   flex-wrap: wrap;
@@ -20,9 +18,11 @@
   display: block;
   padding: 0.5rem 1rem;
 }
+
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
 }
+
 .nav-link.disabled {
   color: #6c757d;
   pointer-events: none;
@@ -45,6 +45,7 @@
   line-height: inherit;
   white-space: nowrap;
 }
+
 .navbar-brand:hover, .navbar-brand:focus {
   text-decoration: none;
 }
