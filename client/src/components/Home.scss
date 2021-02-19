@@ -43,8 +43,8 @@
 #bg_image {
   @include bkg-img-transition("../img/bg-masthead-1.png","../img/bg-masthead.png");
   background-size: cover;
-  width:119rem;
-  height:65rem;
+  width:100vw;
+  height:100vh;
   // line-height:300px;
   cursor:pointer;
 }

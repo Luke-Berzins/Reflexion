@@ -1,22 +1,36 @@
-.yoursessions {
+#sessions-wrapper {
   background-image: url('../img/bg-masthead-m.jpg');
+  background-size: cover;
+  width: 100vw;
+  height:100vh;
+  font-family: 'Raleway', sans-serif !important;
 
-  .sessionList {
-    padding-left: 300px;
-    padding-top: 50px;
-    padding-right: 300px;
-    font-family: 'Raleway', sans-serif !important;
-    background-size: cover;
-    width:100%;
-    height:100%;
+}
+.yourSessions {
+  padding-top: 15vh;
+  margin-left: 24vw;
+  margin-right: 24vw;
+  margin-bottom: 100px;
+ }
 
 
-    .usersession {
+.sessionList {
+  background-color: rgb(255, 255, 255, 0.6);
+  background-size: cover;
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
 
-      color: rgb(114, 112, 112);
-      display: flex;
-      justify-content: space-between;
-    }
+  width:100%;
+  height:100%;
+
+
+  .usersession {
+
+    color: rgb(114, 112, 112);
+    display: flex;
+    justify-content: space-between;
   }
 }
+
 
