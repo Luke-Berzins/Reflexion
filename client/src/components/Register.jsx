@@ -62,7 +62,7 @@ export default function Register(props) {
                       <div className="col-md-12">
                         <div className="form-block">
                           <div className="mb-4">
-                            <h3>Start Your <strong>Reflexion</strong></h3>
+                            <h3>Begin Your <strong>Reflexion</strong></h3>
                             <p className="mb-4"></p>
                           </div>
                           <form onSubmit={ handleSubmit(onSubmit)} >

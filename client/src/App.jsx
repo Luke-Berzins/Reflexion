@@ -39,30 +39,30 @@ function App() {
     <Router>
       <div>
         <Nav />
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/yoursessions">
-            <Yoursessions />
-          </Route>
-          <Route path="/builder" >
-            <Builder poses={state.poses} />
-          </Route>
-          <Route path="/session/:id">
-            <Session />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/yoursessions">
+              <Yoursessions />
+            </Route>
+            <Route path="/builder" >
+              <Builder poses={state.poses} />
+            </Route>
+            <Route path="/session/:id">
+              <Session />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+       </div>
     </Router>
   );
 }

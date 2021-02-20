@@ -10,7 +10,7 @@ export default function Builder(props) {
   const [cookies, setCookie] = useCookies(['name', 'id']);
   const [state, setState] = useState({
     selectedPose: {},
-    sequenceName: "Title Your Session!",
+    sequenceName: "Give your session a name (optional):",
     show: false,
   })
 
@@ -49,17 +49,19 @@ export default function Builder(props) {
   }
 
   if(state.show === false) return (
-    <div id="initial">
 
-      <button className="btn btn-secondary btn-lg " onClick={() => setState({...state, show: true})}>Begin</button>
+    <div id="initial" className="animate__animated animate__fadeIn">
+      <button className="btn btn-primary btn-lg " onClick={() => setState({...state, show: true})}>Begin</button>
     </div>
+
   )
 
   return (
 
-    <div id="builder">
+    <div id="builder" className="animate__animated animate__fadeIn">
 
-      <main className='flexbox'>
+
+      <main className='flexbox animate__animated animate__fadeIn'>
         <Board id="board_1" className="board">
           <Cardlist id="cardlist_1" className="card-list" poses={props.poses} setPose={setPose}/>
         </Board>
@@ -67,21 +69,30 @@ export default function Builder(props) {
         </Board>
       </main>
 
-      <div className="picc">
-        <div className='picture'>
-          <h3>{state.selectedPose.name}</h3>
-        {state.selectedPose.photo ? <img src={state.selectedPose.photo}></img> : <h5><b>Please drag a pose to the build square to build your session. Click on any pose for more information!</b></h5>}
+      <div className="picc animate__animated animate__fadeIn animate__slow">
+        <div className='picture animate__animated animate__fadeIn animate__slower'>
+        <h5>{state.selectedPose.name}</h5>
+        {state.selectedPose.photo ? <img src={state.selectedPose.photo} alt="selectedPose"></img> :
+        <div>
+        <h5>Drag & Drop to Build Your Sequence:</h5>
+        <img src="https://i.imgur.com/Wa8nFYI.gif" alt="instructAnim"></img>
+        </div>}
         </div>
-        <div
-          className='description'>
-          <b>{state.selectedPose.description}</b>
+        <div className='description animate__animated animate__fadeIn animate__slower'>
+          <h4>{state.selectedPose.description}</h4>
         </div>
+        <br></br>
+        <h4>{state.sequenceName}</h4>
+        <form class="form-inline" maxLength="80" onChange={handleInputChange}>
+        <input type="text" id="seqeuenceName" name="sequenceName" />
+        <button type="submit" className="btn btn-secondary btn-lg" onClick={generateSequence}>Save & Begin</button>
+        </form>
 
-        <section className='but'>
+        {/* { <section className='but'>
           <h1>{state.sequenceName}</h1>
           <input name="sequenceName" type="sequenceName" className="form-control" maxLength="40" id="sequenceName"  onChange={handleInputChange}/>
           <button type="button" className="btn btn-secondary btn-lg" onClick={generateSequence} >Build!</button>
-        </section>
+        </section>} */}
       </div>
     </div>
   )
