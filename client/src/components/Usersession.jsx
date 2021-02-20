@@ -42,7 +42,6 @@ export default function Usersession(props) {
     )
   }
 
-
   return (
     <div className='usersession'>
       <h5>{props.name}</h5>
