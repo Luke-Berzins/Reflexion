@@ -85,8 +85,8 @@ export default function Session(props) {
       <div id="session" onload="setList(id)" className="animate__animated animate__fadeIn">
         <div className="voice-detection">
          { state.pageView ?
-            <VoiceDetection poseIncrementer={ poseIncrementer }/> :
-            <VoiceDetection startSequence={ startSequence } /> }
+            <VoiceDetection poseIncrementer={ poseIncrementer } button={true}/> :
+            <VoiceDetection startSequence={ startSequence } button={false} /> }
         </div>
         { state.pageView && <>
           <VideoPlayer video={currentPose.video} delay={2500} />
