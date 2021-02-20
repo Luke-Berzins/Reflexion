@@ -31,7 +31,7 @@ CREATE TABLE poses (
 
 CREATE TABLE sequence_pose (
   id SERIAL PRIMARY KEY NOT NULL,
-  sequence_id INTEGER REFERENCES sequences(id),
+  sequence_id INTEGER REFERENCES sequences(id) ON DELETE CASCADE,
   pose_id INTEGER REFERENCES poses(id),
   position INT NOT NULL
 );
