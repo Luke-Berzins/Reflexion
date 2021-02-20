@@ -10,14 +10,15 @@
   padding-top: 15vh;
   margin-left: 24vw;
   margin-right: 24vw;
-  margin-bottom: 100px;
+  margin-bottom: 2rem;
  }
 
 
 .sessionList {
-  background-color: rgb(255, 255, 255, 0.6);
+  border-radius: 10px;
+  background-color: rgba(155, 155, 155, 0.4);
   background-size: cover;
-  padding-top: 15px;
+  padding-top: 2rem;
   padding-left: 25px;
   padding-right: 25px;
 
@@ -26,8 +27,10 @@
 
 
   .usersession {
-
-    color: rgb(114, 112, 112);
+    margin: 2rem;
+    border-radius: 10px;
+    padding: 3rem;
+    background-color: rgb(255, 255, 255, 0.6);
     display: flex;
     justify-content: space-between;
   }

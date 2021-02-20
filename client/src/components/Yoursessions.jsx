@@ -9,7 +9,6 @@ export default function Yoursessions(props) {
         <div className="sessionList">
         <h1>Your Sessions:</h1>
         <br></br>
-        <br></br>
         <UsersessionList />
         <br></br>
         </div>
