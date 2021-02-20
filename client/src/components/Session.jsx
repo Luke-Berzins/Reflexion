@@ -73,7 +73,7 @@ export default function Session(props) {
 
   const videoConstraints = {
     facingMode: "user",
-    width:  { min: 1024 },
+    width:  { min: 1360 },
     height: { min: 768 },
   };
 
