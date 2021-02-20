@@ -50,7 +50,8 @@ export default function Builder(props) {
 
   if(state.show === false) return (
     <div id="initial">
-      <button className="btn btn-primary btn-lg " onClick={() => setState({...state, show: true})}>Begin</button>
+
+      <button className="btn btn-secondary btn-lg " onClick={() => setState({...state, show: true})}>Begin</button>
     </div>
   )
 
@@ -69,7 +70,7 @@ export default function Builder(props) {
       <div className="picc">
         <div className='picture'>
           <h3>{state.selectedPose.name}</h3>
-        {state.selectedPose.photo ? <img src={state.selectedPose.photo}></img> : <p>Please drag a pose to the build square to build your session. Click on any pose for more information</p>}
+        {state.selectedPose.photo ? <img src={state.selectedPose.photo}></img> : <h5><b>Please drag a pose to the build square to build your session. Click on any pose for more information!</b></h5>}
         </div>
         <div
           className='description'>

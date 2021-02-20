@@ -17,6 +17,9 @@
     transform: translate(-50%, -50%);
     background-color: #343434;
     border: none;
+    // margin-left: 48vw;
+    // margin-top: 220px;
+    // background-color: #343434;
     min-width: 12rem;
     min-height: 4rem;
   }
@@ -92,10 +95,10 @@
 }
 
 .picc {
-  padding-top: 160px;
+  // padding-top: 160px;
   display:flex;
   flex-direction:column;
-  padding-top: 6%;
+  padding-top: 5%;
   padding-right: 16%;
 
 
@@ -127,7 +130,7 @@
     margin-top: 10%;
     font-family: 'Raleway', sans-serif !important;
     text-align: left;
-    padding-top: 30px;
+    padding-top: 10px;
     padding-left: 15px;
     padding-right: 10px;
     font-size: large;
