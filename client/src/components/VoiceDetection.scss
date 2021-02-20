@@ -5,21 +5,45 @@
 
 .seq-nav {
   display: flex;
-  justify-content: space-between;
-  margin-right: 70vh;
-  margin-left: 70vh;
-  color: white;
-
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 3vh;
+  // margin-right: 60vh;
+  margin-left: 195vh;
+  opacity: 0.6;
+  // color: white;
 }
 
-.seq-nav-buttons {
-  margin-left: 48vw;
-  margin-top: 220px;
-  background-color: #343434;
-  border: none;
+// .seq-nav-buttons {
+//   margin-left: 3.5vw;
+//   margin-top: 30px;
+//   background-color: #343434;
+//   border: none;
+// }
+
+// .btn-secondary {
+//   // background-color: #343434;
+//   // border: none;
+
+// }
+
+.startt {
+  height:40px;
+  width:105px;
 }
 
-.btn-primary {
-  background-color: #343434;
-  border: none;
+.pre {
+  margin-bottom: 5px;
+  height:40px;
+  width:105px;
+}
+.stop {
+  margin-bottom: 5px;
+  height:40px;
+  width:105px;
+}
+
+.next {
+  height:40px;
+  width:105px;
 }
