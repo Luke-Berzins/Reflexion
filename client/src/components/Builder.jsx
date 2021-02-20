@@ -41,7 +41,6 @@ export default function Builder(props) {
   }
 
   const setPose = selectedPose=> {
-    console.log(selectedPose)
     setState({ ...state, selectedPose });
   }
 

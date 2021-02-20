@@ -28,7 +28,6 @@ export default function Nav(props) {
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/builder">Builder</Link></li>
-                <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/session">Session</Link></li>
                 <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/about">About</Link></li>
                 <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/yoursessions">Your Sessions</Link></li>
                 {
