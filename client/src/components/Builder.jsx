@@ -76,7 +76,7 @@ export default function Builder(props) {
         {state.selectedPose.photo ? <img src={state.selectedPose.photo} alt="selectedPose"></img> :
         <div>
         <h5>Drag & Drop to Build Your Sequence:</h5>
-        <img src="https://i.imgur.com/Wa8nFYI.gif" alt="instructAnim"></img>
+        <img src="https://i.imgur.com/JOf6DI0.gif" alt="instructAnim"></img>
         </div>}
         </div>
         <div className='description animate__animated animate__fadeIn animate__slower'>
@@ -84,10 +84,12 @@ export default function Builder(props) {
         </div>
         <br></br>
         <h4>{state.sequenceName}</h4>
-        <form class="form-inline" maxLength="80" onChange={handleInputChange}>
-        <input type="text" id="seqeuenceName" name="sequenceName" />
+        {/* <form class="form-inline" maxLength="80" onChange={handleInputChange}> */}
+        <div className="save-sequence">
+        <input type="text" id="seqeuenceName" name="sequenceName" className="form-inline" maxLength="80" onChange={handleInputChange} />
         <button type="submit" className="btn btn-secondary btn-lg" onClick={generateSequence}>Save & Begin</button>
-        </form>
+        </div>
+        {/* </form> */}
 
         {/* { <section className='but'>
           <h1>{state.sequenceName}</h1>
