@@ -10,7 +10,7 @@ export default function Builder(props) {
   const [cookies, setCookie] = useCookies(['name', 'id']);
   const [state, setState] = useState({
     selectedPose: {},
-    sequenceName: "Give your session a name (optional)",
+    sequenceName: "Give your session a name (optional):",
     show: false,
   })
 
@@ -25,7 +25,6 @@ export default function Builder(props) {
       name: state.sequenceName,
     })
     .then(res => {
-      console.log("RESPONSE", res)
       const seqID = res.data.rows[0].id
       let counter = 1;
       poseArray.forEach(pose => {
@@ -36,13 +35,7 @@ export default function Builder(props) {
         })
         counter++;
       })
-      console.log("success")
-      return seqID
-    })
-    .then(res => {
-      console.log("fired")
-      window.location = `/session/${res}`
-
+      window.location = `/session/${seqID}`
     })
     .catch(err => console.log(err))
   }
@@ -90,9 +83,9 @@ export default function Builder(props) {
         </div>
         <br></br>
         <h4>{state.sequenceName}</h4>
-        <form className="form-inline" maxLength="80" onChange={handleInputChange}>
+        <form class="form-inline" maxLength="80" onChange={handleInputChange}>
         <input type="text" id="seqeuenceName" name="sequenceName" />
-        <button className="btn btn-secondary btn-lg" onClick={generateSequence}>Save</button>
+        <button type="submit" className="btn btn-secondary btn-lg" onClick={generateSequence}>Save & Begin</button>
         </form>
 
         {/* { <section className='but'>
