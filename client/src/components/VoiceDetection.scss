@@ -4,22 +4,19 @@
 }
 
 .seq-nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+
   margin-top: 3vh;
   // margin-right: 60vh;
-  margin-left: 195vh;
+  margin-left: 180vh;
   opacity: 0.6;
   // color: white;
 }
 
-// .seq-nav-buttons {
-//   margin-left: 3.5vw;
-//   margin-top: 30px;
-//   background-color: #343434;
-//   border: none;
-// }
+.seq-nav-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
 // .btn-secondary {
 //   // background-color: #343434;
