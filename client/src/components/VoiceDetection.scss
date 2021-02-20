@@ -4,22 +4,43 @@
 }
 
 .seq-nav {
-  display: flex;
-  justify-content: space-between;
-  margin-right: 70vh;
-  margin-left: 70vh;
-  color: white;
 
+  margin-top: 3vh;
+  // margin-right: 60vh;
+  margin-left: 180vh;
+  opacity: 0.6;
+  // color: white;
 }
 
 .seq-nav-buttons {
-  margin-left: 48vw;
-  margin-top: 220px;
-  background-color: #343434;
-  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.btn-primary {
-  background-color: #343434;
-  border: none;
+// .btn-secondary {
+//   // background-color: #343434;
+//   // border: none;
+
+// }
+
+.startt {
+  height:40px;
+  width:105px;
+}
+
+.pre {
+  margin-bottom: 5px;
+  height:40px;
+  width:105px;
+}
+.stop {
+  margin-bottom: 5px;
+  height:40px;
+  width:105px;
+}
+
+.next {
+  height:40px;
+  width:105px;
 }
