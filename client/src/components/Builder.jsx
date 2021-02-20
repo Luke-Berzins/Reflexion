@@ -10,7 +10,7 @@ export default function Builder(props) {
   const [cookies, setCookie] = useCookies(['name', 'id']);
   const [state, setState] = useState({
     selectedPose: {},
-    sequenceName: "Give your session a name (optional):",
+    sequenceName: "Give your session a name (optional)",
     show: false,
   })
 
@@ -25,6 +25,7 @@ export default function Builder(props) {
       name: state.sequenceName,
     })
     .then(res => {
+      console.log("RESPONSE", res)
       const seqID = res.data.rows[0].id
       let counter = 1;
       poseArray.forEach(pose => {
@@ -35,7 +36,13 @@ export default function Builder(props) {
         })
         counter++;
       })
-      window.location = `/session/${seqID}`
+      console.log("success")
+      return seqID
+    })
+    .then(res => {
+      console.log("fired")
+      window.location = `/session/${res}`
+
     })
     .catch(err => console.log(err))
   }
@@ -75,7 +82,7 @@ export default function Builder(props) {
         {state.selectedPose.photo ? <img src={state.selectedPose.photo} alt="selectedPose"></img> :
         <div>
         <h5>Drag & Drop to Build Your Sequence:</h5>
-        <img src="https://i.imgur.com/Wa8nFYI.gif" alt="instructAnim"></img>
+        <img src="https://i.imgur.com/JOf6DI0.gif" alt="instructAnim"></img>
         </div>}
         </div>
         <div className='description animate__animated animate__fadeIn animate__slower'>
@@ -83,9 +90,9 @@ export default function Builder(props) {
         </div>
         <br></br>
         <h4>{state.sequenceName}</h4>
-        <form class="form-inline" maxLength="80" onChange={handleInputChange}>
+        <form className="form-inline" maxLength="80" onChange={handleInputChange}>
         <input type="text" id="seqeuenceName" name="sequenceName" />
-        <button type="submit" className="btn btn-secondary btn-lg" onClick={generateSequence}>Save & Begin</button>
+        <button className="btn btn-secondary btn-lg" onClick={generateSequence}>Save</button>
         </form>
 
         {/* { <section className='but'>
