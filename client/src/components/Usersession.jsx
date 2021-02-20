@@ -20,10 +20,10 @@ export default function Usersession(props) {
     return (
       <div className='usersession' id={props.id}>
         <h1>{props.name}</h1>
-        <h3 style={{color:'red'}}>Are you sure you want to <b>delete?</b></h3>
+        <h3 className="deleteWarning">Are you sure you want to <b>delete?</b></h3>
         <div className='buttons'>
         <button className="btn btn-danger" type='submit' onClick={() => deleteSession(props.id)}>Delete</button>&nbsp;&nbsp;&nbsp;
-        <button className="btn btn-info" type='submit' onClick={() => setState({transition: null})}>Cancel</button>
+        <button className="btn btn-warning" type='submit' onClick={() => setState({transition: null})}>Cancel</button>
         </div>
       </div>
     )

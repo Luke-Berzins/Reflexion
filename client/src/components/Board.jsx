@@ -2,6 +2,8 @@ import React from 'react'
 
 function Board(props) {
 
+
+
   const drop = e => {
     e.preventDefault();
     const card_id = e.dataTransfer.getData('card_id');
@@ -22,6 +24,7 @@ function Board(props) {
       className={props.className}
       onDrop={drop}
       onDragOver={dragOver}
+
     >
       { props.children }
     </div>

@@ -28,7 +28,6 @@ export function registerUser(user) {
     console.log("wrong password")
     return null
   }
-  console.log("wront")
   return null;
   })
   .catch(function (error) {

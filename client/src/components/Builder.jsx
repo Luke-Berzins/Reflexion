@@ -15,7 +15,6 @@ export default function Builder(props) {
   })
 
   const generateSequence = () => {
-    console.log(cookies.id)
     const list = document.getElementById('board_2').children
     const poseArray = [...list].map(x => x.id.split('').pop() * 1)
     if (list.length === 0) {
@@ -52,7 +51,6 @@ export default function Builder(props) {
 
   if(state.show === false) return (
     <div id="initial">
-
       <button className="btn btn-primary btn-lg " onClick={() => setState({...state, show: true})}>Begin</button>
     </div>
   )
@@ -81,7 +79,7 @@ export default function Builder(props) {
 
         <section className='but'>
           <h1>{state.sequenceName}</h1>
-          <input name="sequenceName" type="sequenceName" className="form-control" id="sequenceName"  onChange={handleInputChange}/>
+          <input name="sequenceName" type="sequenceName" className="form-control" maxLength="40" id="sequenceName"  onChange={handleInputChange}/>
           <button type="button" className="btn btn-secondary btn-lg" onClick={generateSequence} >Build!</button>
         </section>
       </div>
