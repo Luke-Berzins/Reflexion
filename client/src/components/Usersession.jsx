@@ -19,8 +19,8 @@ export default function Usersession(props) {
    if (state.transition === 'delete') {
     return (
       <div className='usersession' id={props.id}>
-        <h1>{props.name}</h1>
-        <h3 className="deleteWarning">Are you sure you want to <b>delete?</b></h3>
+        <h5>{props.name}</h5>
+        <h5 className="deleteWarning">Delete this sequence?</h5>
         <div className='buttons'>
         <button className="btn btn-danger" type='submit' onClick={() => deleteSession(props.id)}>Delete</button>&nbsp;&nbsp;&nbsp;
         <button className="btn btn-warning" type='submit' onClick={() => setState({transition: null})}>Cancel</button>
@@ -32,8 +32,8 @@ export default function Usersession(props) {
   if (state.transition === 'start') {
     return (
       <div className='usersession startconfirm'>
-        <h1>{props.name}</h1>
-        <h2 style={{color:'blue'}}>Ready to Start?</h2>
+        <h5>{props.name}</h5>
+        <h5 style={{color:'blue'}}>Ready to Start?</h5>
         <div className='buttons'>
         <button className="btn btn-info" onClick={() => window.location=`/session/${props.id}`}>Start</button>&nbsp;&nbsp;&nbsp;
         <button className="btn btn-warning" type='submit' onClick={() => setState({transition: null})}>Cancel</button>
@@ -45,7 +45,7 @@ export default function Usersession(props) {
 
   return (
     <div className='usersession'>
-      <h1>{props.name}</h1>
+      <h5>{props.name}</h5>
       <div className='buttons'>
         <button className="btn btn-info" onClick={() => setState({transition: 'start'})}>Start</button>&nbsp;&nbsp;&nbsp;
         <button className="btn btn-danger" type='submit' onClick={() => setState({transition: 'delete'})}>Delete</button>

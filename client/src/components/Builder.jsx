@@ -70,8 +70,8 @@ export default function Builder(props) {
         </Board>
       </main>
 
-      <div className="picc animate__animated animate__fadeIn">
-        <div className='picture animate__animated animate__fadeIn'>
+      <div className="picc animate__animated animate__fadeIn animate__slow">
+        <div className='picture animate__animated animate__fadeIn animate__slower'>
         <h5>{state.selectedPose.name}</h5>
         {state.selectedPose.photo ? <img src={state.selectedPose.photo} alt="selectedPose"></img> :
         <div>
@@ -79,7 +79,7 @@ export default function Builder(props) {
         <img src="https://i.imgur.com/Wa8nFYI.gif" alt="instructAnim"></img>
         </div>}
         </div>
-        <div className='description animate__animated animate__fadeIn'>
+        <div className='description animate__animated animate__fadeIn animate__slower'>
           <h4>{state.selectedPose.description}</h4>
         </div>
         <br></br>
