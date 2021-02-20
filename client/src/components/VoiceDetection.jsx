@@ -81,7 +81,8 @@ function VoiceDetection(props) {
     <div className="seq-nav">
       <div className='seq-nav-buttons'>
         {props.button ? <button onClick={() => props.poseIncrementer(-1)} type="button" className="btn btn-primary">PREVIOUS</button> : null}
-        <button onClick={() => props.startSequence()} type="button" className="btn btn-primary">START</button>
+        {props.button ? <button onClick={() => window.location = `/yoursessions`} type="button" className="btn btn-primary">STOP</button>
+        : <button onClick={() => props.startSequence()} type="button" className="btn btn-primary">START</button> }
         {props.button ? <button onClick={() => props.poseIncrementer(1)} type="button" className="btn btn-primary">NEXT</button> : null}
       </div>
     </div>
