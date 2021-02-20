@@ -57,7 +57,7 @@ export default function Login(props) {
                   <div className="col-md-12">
                     <div className="form-block">
                         <div className="mb-4">
-                        <h3>Begin Your <strong>Reflexion</strong></h3>
+                        <h3>Resume Your <strong>Reflexion</strong></h3>
                         <p className="mb-4"></p>
                       </div>
                       {/* <!-- register form--> */}
