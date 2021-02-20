@@ -120,22 +120,19 @@
       color: rgb(226, 226, 226);
     }
 
-  .form-inline {
+  .save-sequence {
     display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-  }
-
-  .form-inline input {
-    vertical-align: middle;
-    margin: 5px 10px 5px 0;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    width: 420px;
-  }
-  .form-inline button {
-    padding: 10px 20px;
+    align-items: column;
+      .form-inline {
+      margin-right: 5px;
+      -webkit-transition: width .35s ease-in-out;
+      transition: width .35s ease-in-out;
+      width: 225px;
+    }
+    input:focus {
+      width: 450px;
+      transition: ease-in-out, width .35s ease-in-out;
+    }
   }
 
 
