@@ -65,7 +65,7 @@ module.exports = (db) => {
     `,
       [req.body.user_id, req.body.name]
     ).then(response => {
-      console.log(response)
+      console.log("RESPONSE", response)
       res.send(response)
     })
   });

@@ -2,7 +2,6 @@ import React from 'react'
 import Card from './Card'
 
 export default function Cardlist(props) {
-  const selectedPose = props.name;
   const cardList = props.poses.map(poses => {
     let counter = `card_${poses.id}`
   return (  <Card
