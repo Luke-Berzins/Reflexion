@@ -65,9 +65,9 @@ export default function Builder(props) {
   if (state.show === 'transition') return (
 
     <div id="transition" className="animate__animated animate__fadeIn">
-      <div className="changing">
+      <div className="changing animate__animated animate__fadeIn">
       <img src='/transitions/status.png' alt="transition"className="rotate"/>
-      <h1>Building your session</h1>
+      <h2>Building Your Reflexion...</h2>
       </div>
     </div>
   )

@@ -166,8 +166,11 @@
       transition: ease-in-out, width .35s ease-in-out;
     }
   }
+}
 
-
+#transition {
+  margin-top: 15vh;
+  font-family: 'Raleway', sans-serif !important;
 }
 
 .card-box {
