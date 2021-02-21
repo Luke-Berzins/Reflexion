@@ -7,6 +7,8 @@ import VoiceDetection from './VoiceDetection';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+
+
 function VideoPlayer(props) {
   const [show, setShow] = useState(false);
   const { video, delay } = props;
@@ -33,6 +35,36 @@ function VideoPlayer(props) {
     </div>
 }
 
+// const reducer = (state, action) => {
+//   if(action.type === "START") {
+//     return {
+//       ...state,
+//       pageView: true
+//     }
+//   }
+
+//   if(action.type === "NEXT") {
+//     return {
+//       ...state,
+//       postIndex: state.poseIndex < state.poseArray.length - 1 ? state.posestate.poseIndex + 1 : state.poseArray.length - 1
+//     }
+//   }
+
+//   if(action.type === "PREVIOUS") {
+//     return {
+//       ...state,
+//       postIndex: state.poseIndex > 0 ? state.poseIndex - 1 : 0
+//     }
+//   }
+
+//   return state;
+// }
+
+// const [state, dispatch] = useReducer(reducer, { poseArray: [], poseIndex: 0, pageView: false });
+
+// dispatch({
+//   type: "START"
+// });
 
 export default function Session(props) {
 
@@ -43,12 +75,23 @@ export default function Session(props) {
   })
   let { id } = useParams();
 
-  const startSequence = () => {
-    setState(prev => ({...prev, pageView: true}))
-  }
 
-  const poseIncrementer = (direction) => {
+
+  const startSequence = React.useCallback(() => {
+    setState(state => {
+      if(state.pageView === true) {
+        return state;
+      }
+
+      return ({...state, pageView: true});
+    });
+  }, []);
+
+  const poseIncrementer = React.useCallback((direction) => {
     setState((prev) => {
+      if (prev.pageView === false) {
+        return prev;
+      }
       let nextPoseIndex = prev.poseIndex;
 
       if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
@@ -57,7 +100,9 @@ export default function Session(props) {
 
       return ({...prev, poseIndex: nextPoseIndex})
     })
-  }
+  }, []);
+
+
 
   useEffect(() => {
     Promise.all([
@@ -74,8 +119,8 @@ export default function Session(props) {
 
   const videoConstraints = {
     facingMode: "user",
-    width:  { min: 750 },
-    height: { min: 480 },
+    width:  { min: 100 },
+    height: { min: 100 },
   };
 
   const currentPose = state.poseArray[state.poseIndex];
@@ -84,9 +129,7 @@ export default function Session(props) {
     return (
       <div id="session" onload="setList(id)" className="animate__animated animate__fadeIn">
         <div className="voice-detection">
-         { state.pageView ?
-            <VoiceDetection poseIncrementer={ poseIncrementer } button={true}/> :
-            <VoiceDetection startSequence={ startSequence } button={false} /> }
+          <VoiceDetection startSequence={ startSequence } poseIncrementer={ poseIncrementer } started={state.pageView}/>
         </div>
         { state.pageView && <>
           <VideoPlayer video={currentPose.video} delay={2500} />

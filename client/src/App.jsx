@@ -10,14 +10,15 @@ import {
 } from "react-router-dom";
 
 import './App.css';
-import Login from './components/Login';
-import Register from './components/Register';
+
 import Home from './components/Home';
 import Session from './components/Session';
 import Builder from './components/Builder';
-import Nav from './components/Nav';
+
 import About from './components/About';
 import Yoursessions from './components/Yoursessions';
+import ModelProvider from './context/model'
+import Rendering from './context/Rendering'
 
 function App() {
   const [cookies, setCookie] = useCookies(['name']);
@@ -35,35 +36,25 @@ function App() {
   }, []);
 
   return (
-
-    <Router>
-      <div>
-        <Nav />
-          <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/yoursessions">
-              <Yoursessions />
-            </Route>
-            <Route path="/builder" >
-              <Builder poses={state.poses} />
-            </Route>
-            <Route path="/session/:id">
-              <Session />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-       </div>
-    </Router>
+    <ModelProvider loading={<Rendering />}>
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/yoursessions">
+          <Yoursessions />
+        </Route>
+        <Route path="/builder" >
+          <Builder poses={state.poses} />
+        </Route>
+        <Route path="/session/:id">
+          <Session />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </ModelProvider>
   );
 }
 
