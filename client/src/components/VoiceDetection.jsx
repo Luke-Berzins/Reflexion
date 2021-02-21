@@ -31,7 +31,7 @@ function VoiceDetection(props) {
     let recognizer;
 
       createModel().then((model) => {
-        console.log("yo")
+
         recognizer = model;
 
         recognizer.listen(result => {
