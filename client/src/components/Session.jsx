@@ -53,6 +53,7 @@ export default function Session(props) {
 
       if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
         nextPoseIndex += direction;
+        console.log('Direction:', direction)
       }
 
       return ({...prev, poseIndex: nextPoseIndex})
