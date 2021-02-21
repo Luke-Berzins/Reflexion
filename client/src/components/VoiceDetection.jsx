@@ -22,9 +22,6 @@ import './VoiceDetection.scss'
         return recognizer;
     }
 
-
-let flag = 0;
-
 function VoiceDetection(props) {
 
   const { poseIncrementer, startSequence } = props;
@@ -34,62 +31,43 @@ function VoiceDetection(props) {
     let recognizer;
 
       createModel().then((model) => {
-
+        console.log("yo")
         recognizer = model;
 
-        if (flag === 0) {
-
-
-          recognizer.listen(result => {
+        recognizer.listen(result => {
           // console.log(result)
 
-          const scores = result.scores; // probability of prediction for each class
+        const scores = result.scores; // probability of prediction for each class
 
-          const classLabels = recognizer.wordLabels();
-          const allPredictions = []
+        const classLabels = recognizer.wordLabels();
+        const allPredictions = []
 
-          for (let i = 0; i < classLabels.length; i++) {
-            // const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
-            const classPrediction = { word: classLabels[i], probability: Number(result. scores[i].toFixed(2)) };
-            allPredictions.push(classPrediction);
-          }
-
-          allPredictions.sort((a, b) => b.probability - a.probability)
-          const match = allPredictions[0].word.toLowerCase();
-
-          if (match === 'next' && poseIncrementer) {
-            poseIncrementer(1)
-            flag = 1;
-          setTimeout(() => {
-            flag = 0;
-          }, 3000)
-          return;
-          }
-          if (match === 'begin' && startSequence) {
-            startSequence();
-            flag = 1;
-          setTimeout(() => {
-            flag = 0;
-          }, 3000)
-          return
-          }
-          if (match === 'previous' && poseIncrementer) {
-            poseIncrementer(-1)
-            flag = 1;
-          setTimeout(() => {
-            flag = 0;
-          }, 3000)
-          return
-          }
-
-          }, {
-              includeSpectrogram: true, // in case listen should return result.spectrogram
-              probabilityThreshold: 0.75,
-              invokeCallbackOnNoiseAndUnknown: true,
-              overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
-          });
+        for (let i = 0; i < classLabels.length; i++) {
+          // const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
+          const classPrediction = { word: classLabels[i], probability: Number(result.scores[i].toFixed(2)) };
+          allPredictions.push(classPrediction);
         }
-      })  ;
+
+        allPredictions.sort((a, b) => b.probability - a.probability)
+        const match = allPredictions[0].word.toLowerCase();
+
+        if (match === 'next' && poseIncrementer) {
+          poseIncrementer(1)
+        }
+        if (match === 'begin' && startSequence) {
+          startSequence();
+        }
+        if (match === 'previous' && poseIncrementer) {
+          poseIncrementer(-1)
+        }
+
+        }, {
+            includeSpectrogram: true, // in case listen should return result.spectrogram
+            probabilityThreshold: 0.75,
+            invokeCallbackOnNoiseAndUnknown: true,
+            overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
+        });
+      });
 
       return () => {
         if (recognizer) {
