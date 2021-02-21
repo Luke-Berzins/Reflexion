@@ -52,28 +52,37 @@ function VoiceDetection(props) {
         const match = allPredictions[0].word.toLowerCase();
 
         if (match === 'next' && poseIncrementer) {
-          poseIncrementer(1)
+          recognizer.stopListening()
+          setTimeout(() => {
+            poseIncrementer(1)
+          }, 75)
         }
         if (match === 'begin' && startSequence) {
+          recognizer.stopListening()
+
           startSequence();
         }
         if (match === 'previous' && poseIncrementer) {
-          poseIncrementer(-1)
+          recognizer.stopListening()
+          setTimeout(() => {
+            poseIncrementer(-1)
+          }, 75)
         }
 
         }, {
             includeSpectrogram: true, // in case listen should return result.spectrogram
-            probabilityThreshold: 0.75,
+            probabilityThreshold: 0.90,
             invokeCallbackOnNoiseAndUnknown: true,
             overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
         });
       });
 
-      return () => {
-        if (recognizer) {
-          recognizer.stopListening()
-        }
-      };
+      return;
+      // return () => {
+      //   if (recognizer) {
+      //     recognizer.stopListening()
+      //   }
+      // };
 
     }, [poseIncrementer, startSequence])
 

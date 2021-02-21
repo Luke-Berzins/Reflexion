@@ -47,18 +47,50 @@ export default function Session(props) {
     setState(prev => ({...prev, pageView: true}))
   }
 
+
   const poseIncrementer = (direction) => {
-    setState((prev) => {
-      let nextPoseIndex = prev.poseIndex;
+    setTimeout(() => {
+      setState((prev) => {
+        let nextPoseIndex = prev.poseIndex;
 
-      if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
-        nextPoseIndex += direction;
-        console.log('Direction:', direction)
-      }
+        if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
+          nextPoseIndex += direction;
+          console.log('Direction:', direction)
+        }
 
-      return ({...prev, poseIndex: nextPoseIndex})
-    })
-  }
+        return ({...prev, poseIndex: nextPoseIndex})
+      })
+    }, 1000)
+  };
+
+//  useCallback(() => {
+
+//   const poseIncrementer = (direction) => {
+//     setState((prev) => {
+//       let nextPoseIndex = prev.poseIndex;
+
+//       if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
+//         nextPoseIndex += direction;
+//         console.log('Direction:', direction)
+//       }
+
+//       return ({...prev, poseIndex: nextPoseIndex})
+//     })
+//   }
+//  }, [])
+
+  // const poseIncrementer = (direction) => {
+  //   setState((prev) => {
+  //     let nextPoseIndex = prev.poseIndex;
+
+  //     if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
+  //       nextPoseIndex += direction;
+  //       console.log('Direction:', direction)
+  //     }
+
+  //     return ({...prev, poseIndex: nextPoseIndex})
+  //   })
+  // }
 
   useEffect(() => {
     Promise.all([

@@ -5,7 +5,7 @@ INSERT INTO poses (name, icon, video, description, overlay, photo)
 VALUES ('Tree Pose', 'https://i.imgur.com/kY5JIJv.png', 'https://www.youtube.com/watch?v=Fr5kiIygm0c', 'Recommended after mountain pose. Vrksasana (Tree Pose) strengthens legs, hips, glutes and obliques, and helps to improve your balance over time.', 'https://i.imgur.com/oroiav3.png', 'https://i.imgur.com/dkoOjIS.png');
 
 INSERT INTO poses (name, icon, video, description, overlay, photo)
-VALUES ('Chair Pose', 'https://i.imgur.com/dpPOtoA.png', 'https://www.youtube.com/watch?v=tEZhXr0FuAQ', 'Excellent pose for developing balance, and for improving core strength while challenging your quads.', 'https://i.imgur.com/0rIfXhE.png', 'https://i.imgur.com/ql7euq6.png');
+VALUES ('Chair Pose', 'https://i.imgur.com/dpPOtoA.png', 'https://youtu.be/u5x_6cTXpvY', 'Excellent pose for developing balance, and for improving core strength while challenging your quads.', 'https://i.imgur.com/0rIfXhE.png', 'https://i.imgur.com/ql7euq6.png');
 
 INSERT INTO poses (name, icon, video, description, overlay, photo)
 VALUES ('Warrior 1', 'https://i.imgur.com/gkmUGXN.png', 'video_url', 'Warrior poses are exceptionally grounding, serving to improve lower body strength, spinal alignment, and overall balance.', '../img/overlays/virabhadrasana1.png', 'https://i.imgur.com/NQ0Favn.png');
