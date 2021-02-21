@@ -32,14 +32,15 @@ function VideoPlayer(props) {
       />
     </div>
 }
-
+const debounceInterval = 5000;
+window.lastRun = 0;
 
 export default function Session(props) {
 
   const [state, setState] = useState({
     poseArray : [],
     poseIndex: 0,
-    pageView: false
+    pageView: false,
   })
   let { id } = useParams();
 
@@ -47,50 +48,23 @@ export default function Session(props) {
     setState(prev => ({...prev, pageView: true}))
   }
 
-
   const poseIncrementer = (direction) => {
-    setTimeout(() => {
-      setState((prev) => {
-        let nextPoseIndex = prev.poseIndex;
 
-        if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
-          nextPoseIndex += direction;
-          console.log('Direction:', direction)
-        }
+    if(window.lastRun + debounceInterval > Date.now()) {
+      console.log('Hey the debounce did a thing!');
+      return;
+    }
 
-        return ({...prev, poseIndex: nextPoseIndex})
-      })
-    }, 1000)
+    setState((prev) => {
+      let nextPoseIndex = prev.poseIndex;
+      if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
+        nextPoseIndex += direction;
+        console.log('Direction:', direction)
+      }
+      return ({...prev, poseIndex: nextPoseIndex})
+    })
+    window.lastRun = Date.now();
   };
-
-//  useCallback(() => {
-
-//   const poseIncrementer = (direction) => {
-//     setState((prev) => {
-//       let nextPoseIndex = prev.poseIndex;
-
-//       if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
-//         nextPoseIndex += direction;
-//         console.log('Direction:', direction)
-//       }
-
-//       return ({...prev, poseIndex: nextPoseIndex})
-//     })
-//   }
-//  }, [])
-
-  // const poseIncrementer = (direction) => {
-  //   setState((prev) => {
-  //     let nextPoseIndex = prev.poseIndex;
-
-  //     if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
-  //       nextPoseIndex += direction;
-  //       console.log('Direction:', direction)
-  //     }
-
-  //     return ({...prev, poseIndex: nextPoseIndex})
-  //   })
-  // }
 
   useEffect(() => {
     Promise.all([
@@ -116,32 +90,34 @@ export default function Session(props) {
 
     return (
       <div id="session" onload="setList(id)" className="animate__animated animate__fadeIn">
+        <h1>{String(state.pageView)}</h1>
         <div className="voice-detection">
-         { state.pageView ?
+          <VoiceDetection poseIncrementer={ poseIncrementer } startSequence={ startSequence } button={state.pageView}/>
+         {/* { state.pageView ?
             <VoiceDetection poseIncrementer={ poseIncrementer } button={true}/> :
-            <VoiceDetection startSequence={ startSequence } button={false} /> }
+            <VoiceDetection startSequence={ startSequence } button={false} /> } */}
         </div>
         { state.pageView && <>
           <VideoPlayer video={currentPose.video} delay={2500} />
 
-      <div className="pose-cam-container animate__animated animate__fadeIn animate__slower animate__delay-2s">
-        <div className="overlay">
-          <img src={currentPose.overlay} alt="overlay" style={{opacity: 0.75}} />
-        </div>
+          <div className="pose-cam-container animate__animated animate__fadeIn animate__slower animate__delay-2s">
+            <div className="overlay">
+              <img src={currentPose.overlay} alt="overlay" style={{opacity: 0.75}} />
+            </div>
 
-          <div id="video-container">
-            <center>
-            <Webcam
-              style = { { width: 'auto', height: '99vh', } }
-              mirrored         = { true }
-              audio            = { false }
-              width            = { 1280 }
-              height           = { 720 }
-              videoConstraints = { videoConstraints }
-            />
-            </center>
-          </div>
-        </div></> }
+              <div id="video-container">
+                <center>
+                <Webcam
+                  style = { { width: 'auto', height: '99vh', } }
+                  mirrored         = { true }
+                  audio            = { false }
+                  width            = { 1280 }
+                  height           = { 720 }
+                  videoConstraints = { videoConstraints }
+                />
+                </center>
+              </div>
+            </div></> }
       </div>
     );
 

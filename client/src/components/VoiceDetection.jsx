@@ -27,15 +27,15 @@ function VoiceDetection(props) {
   const { poseIncrementer, startSequence } = props;
 
   useEffect(() => {
-
+    // console.log('Use effect is running');
     let recognizer;
 
       createModel().then((model) => {
-
+        // console.log('Create model is running');
         recognizer = model;
 
         recognizer.listen(result => {
-          // console.log(result)
+        // console.log('Recognizer is running', result);
 
         const scores = result.scores; // probability of prediction for each class
 
@@ -50,23 +50,22 @@ function VoiceDetection(props) {
 
         allPredictions.sort((a, b) => b.probability - a.probability)
         const match = allPredictions[0].word.toLowerCase();
+        // console.log('The predictions array:', allPredictions)
+        // console.log('Match is:', match)
 
         if (match === 'next' && poseIncrementer) {
-          recognizer.stopListening()
-          setTimeout(() => {
-            poseIncrementer(1)
-          }, 75)
+
+          // allPredictions.splice(0, 1, 'pause')
+          poseIncrementer(1)
+
         }
         if (match === 'begin' && startSequence) {
-          recognizer.stopListening()
 
           startSequence();
         }
         if (match === 'previous' && poseIncrementer) {
-          recognizer.stopListening()
-          setTimeout(() => {
-            poseIncrementer(-1)
-          }, 75)
+
+          poseIncrementer(-1)
         }
 
         }, {
@@ -77,14 +76,18 @@ function VoiceDetection(props) {
         });
       });
 
-      return;
-      // return () => {
-      //   if (recognizer) {
-      //     recognizer.stopListening()
-      //   }
-      // };
+      return () => {
+        try {
+          if (recognizer) {
+            recognizer.stopListening()
+          }
+        } catch(err) {
+          console.error('Could not clean up recognizer, recognizer was not active.', err)
+        }
+      };
 
-    }, [poseIncrementer, startSequence])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [startSequence, poseIncrementer])
 
   return (
     <div className="seq-nav">
