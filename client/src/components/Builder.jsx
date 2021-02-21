@@ -6,15 +6,17 @@ import "./Builder.scss"
 import { useState } from "react";
 import { useCookies } from 'react-cookie';
 
+
 export default function Builder(props) {
   const [cookies, setCookie] = useCookies(['name', 'id']);
   const [state, setState] = useState({
     selectedPose: {},
     sequenceName: "Give your session a name (optional):",
-    show: false,
+    show: 'initial',
   })
 
   const generateSequence = () => {
+    setState({...state, show: "transition"})
     const list = document.getElementById('board_2').children
     const poseArray = [...list].map(x => x.id.split('').pop() * 1)
     if (list.length === 0) {
@@ -35,13 +37,16 @@ export default function Builder(props) {
         })
         counter++;
       })
-      window.location = `/session/${seqID}`
+      setTimeout(() => {
+        console.log("transitioning...")
+        window.location = `/session/${seqID}`
+      }, 4000)
+
     })
     .catch(err => console.log(err))
   }
 
   const setPose = selectedPose=> {
-    console.log(selectedPose)
     setState({ ...state, selectedPose });
   }
 
@@ -49,12 +54,22 @@ export default function Builder(props) {
     setState({...state, sequenceName: e.target.value})
   }
 
-  if(state.show === false) return (
+  if (state.show === 'initial') return (
 
     <div id="initial" className="animate__animated animate__fadeIn">
-      <button className="btn btn-primary btn-lg " onClick={() => setState({...state, show: true})}>Begin</button>
+      <button className="btn btn-primary btn-lg " onClick={() => setState({...state, show: "builder"})}>Begin</button>
     </div>
 
+  )
+
+  if (state.show === 'transition') return (
+
+    <div id="transition" className="animate__animated animate__fadeIn">
+      <div className="changing">
+      <img src='/transitions/status.png' alt="transition"className="rotate"/>
+      <h1>Building your session</h1>
+      </div>
+    </div>
   )
 
   return (
@@ -84,18 +99,10 @@ export default function Builder(props) {
         </div>
         <br></br>
         <h4>{state.sequenceName}</h4>
-        {/* <form class="form-inline" maxLength="80" onChange={handleInputChange}> */}
         <div className="save-sequence">
         <input type="text" id="seqeuenceName" name="sequenceName" className="form-inline" maxLength="80" onChange={handleInputChange} />
         <button type="submit" className="btn btn-secondary btn-lg" onClick={generateSequence}>Save & Begin</button>
         </div>
-        {/* </form> */}
-
-        {/* { <section className='but'>
-          <h1>{state.sequenceName}</h1>
-          <input name="sequenceName" type="sequenceName" className="form-control" maxLength="40" id="sequenceName"  onChange={handleInputChange}/>
-          <button type="button" className="btn btn-secondary btn-lg" onClick={generateSequence} >Build!</button>
-        </section>} */}
       </div>
     </div>
   )

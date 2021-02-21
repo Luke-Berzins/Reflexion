@@ -25,6 +25,38 @@
   }
 }
 
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+#transition {
+
+  background-size: cover;
+  width:100%;
+  height:100vh;
+
+  .changing {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height:70%;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    .rotate {
+      animation: rotation 15s infinite linear;
+    }
+  }
+
+
+
+}
+
 #builder {
   background-image: url('../img/bg-masthead-2.png');
   background-size: cover;
