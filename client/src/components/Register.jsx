@@ -45,7 +45,6 @@ export default function Register(props) {
 
   }
 
-
   return (
     <div>
       <video autoPlay loop muted id='video' className="animate__animated animate__fadeIn">

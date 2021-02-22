@@ -38,6 +38,7 @@ function VideoPlayer(props) {
 const debounceInterval = 5000;
 window.lastRun = 0;
 
+
 export default function Session(props) {
 
   const [state, setState] = useState({

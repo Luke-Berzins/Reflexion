@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 
+
 export default function Nav(props) {
   const [cookies, setCookie, removeCookie] = useCookies(['name', 'id']);
   const removeCook = () => {

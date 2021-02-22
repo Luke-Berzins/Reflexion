@@ -21,6 +21,7 @@ export default function About(props) {
         <div className="animate__animated animate__fadeIn"><h2>Reflexion Developers</h2></div>
 
 
+
         <div className="row">
           <div className="col-lg-4 mb-4 animate__animated animate__fadeIn">
             <div className="card h-100 text-center">

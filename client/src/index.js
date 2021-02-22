@@ -15,6 +15,7 @@ import Register from './components/Register';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 ReactDOM.render(
     <CookiesProvider>
       <Router>
