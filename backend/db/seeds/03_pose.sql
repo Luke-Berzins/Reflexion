@@ -26,5 +26,5 @@ INSERT INTO poses (name, icon, video, description, overlay, photo)
 VALUES ('Crescent Lunge', 'https://i.imgur.com/FRpzaLi.png', 'video_url', 'Anjaneyasana (Crescent Lunge) is simultaneously a grounding as well as uplifting pose, providing a stretch to the thoracic spine and a strength challenge for the quads (upper thigh muscles).', '../img/overlays/anjaneyasana.png', 'https://i.imgur.com/aSw1daf.png');
 
 INSERT INTO poses (name, icon, video, description, overlay, photo)
-VALUES ('Start Demo!', 'https://i.imgur.com/QxdgsyI.png', 'https://youtu.be/gArbxdnWcVU', 'Reflexion was conceived, designed, and developed by Ryan MacFarlane, Mahsa Arabameri, and Luke Berzins as their final project for the Lighthouse Labs Web Development Bootcamp.  Add this video to your sequence to see the Reflexion app in real-world use!', '../img/overlays/uttanasana.png', 'https://i.imgur.com/yMchAiO.png');
+VALUES ('Forward Fold', 'https://i.imgur.com/n5vke4H.png', 'video_url', 'Uttanasana (Standing Forward Fold) guides the head below the heart for a calming effect, taking pressure off the lower spine while simultaneously providing a gentle hamstring stretch.', '../img/overlays/uttanasana.png', 'https://i.imgur.com/22h9xWg.png');
 
