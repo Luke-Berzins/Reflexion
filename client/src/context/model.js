@@ -4,9 +4,10 @@ import React, { useState, createContext, useEffect, useContext } from "react";
 
 const ModelContext = createContext();
 
-const URL = "http://localhost:3002/model/";
+const URL = "http://localhost:8000/model/";
 
 async function createModel() {
+  console.log("success")
   const checkpointURL = URL + "model.json"; // model topology
   const metadataURL = URL + "metadata.json"; // model metadata
 
@@ -40,6 +41,4 @@ function ModelProvider({children, loading}) {
   );
 }
 
-
 export default ModelProvider;
-

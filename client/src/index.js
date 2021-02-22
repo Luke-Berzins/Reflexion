@@ -18,7 +18,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
     <CookiesProvider>
       <Router>
-
         <Nav />
         <Route path="/login">
           <Login />
