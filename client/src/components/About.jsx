@@ -48,8 +48,7 @@ export default function About(props) {
           </div>
           <div className="col-lg-4 mb-4 animate__animated animate__fadeIn animate__slower">
             <div className="card h-100 text-center">
-              {/* <img className="card-img-top" src="https://i.imgur.com/Ma67rrI.png" alt="Luke pic" width="500" height="350" /> */}
-              <img className="card-img-top" src="https://i.imgur.com/ZLgTEcr.png" alt="Luke pic" width="500" height="350" />
+              <img className="card-img-top" src="https://i.imgur.com/Ma67rrI.png" alt="Luke pic" width="500" height="350" />
               <div className="card-body">
                 <h4 className="card-title">Luke Berzins</h4>
                 <h6 className="card-subtitle mb-2 text-muted">Developer</h6>

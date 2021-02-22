@@ -27,46 +27,38 @@ function VoiceDetection(props) {
   const { poseIncrementer, startSequence } = props;
 
   useEffect(() => {
-    // console.log('Use effect is running');
     let recognizer;
 
       createModel().then((model) => {
-        // console.log('Create model is running');
         recognizer = model;
 
         recognizer.listen(result => {
-        // console.log('Recognizer is running', result);
 
-        const scores = result.scores; // probability of prediction for each class
+          const scores = result.scores; // probability of prediction for each class
 
-        const classLabels = recognizer.wordLabels();
-        const allPredictions = []
+          const classLabels = recognizer.wordLabels();
+          const allPredictions = []
 
-        for (let i = 0; i < classLabels.length; i++) {
-          // const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
-          const classPrediction = { word: classLabels[i], probability: Number(result.scores[i].toFixed(2)) };
-          allPredictions.push(classPrediction);
-        }
+          for (let i = 0; i < classLabels.length; i++) {
+            const classPrediction = { word: classLabels[i], probability: Number(result.scores[i].toFixed(2)) };
+            allPredictions.push(classPrediction);
+          }
 
-        allPredictions.sort((a, b) => b.probability - a.probability)
-        const match = allPredictions[0].word.toLowerCase();
-        // console.log('The predictions array:', allPredictions)
-        // console.log('Match is:', match)
+          allPredictions.sort((a, b) => b.probability - a.probability)
+          const match = allPredictions[0].word.toLowerCase();
 
-        if (match === 'next' && poseIncrementer) {
 
-          // allPredictions.splice(0, 1, 'pause')
-          poseIncrementer(1)
+          if (match === 'next' && poseIncrementer) {
+            poseIncrementer(1)
+          }
 
-        }
-        if (match === 'begin' && startSequence) {
+          if (match === 'begin' && startSequence) {
+            startSequence();
+          }
 
-          startSequence();
-        }
-        if (match === 'previous' && poseIncrementer) {
-
-          poseIncrementer(-1)
-        }
+          if (match === 'previous' && poseIncrementer) {
+            poseIncrementer(-1)
+          }
 
         }, {
             includeSpectrogram: true, // in case listen should return result.spectrogram
@@ -85,8 +77,6 @@ function VoiceDetection(props) {
           console.error('Could not clean up recognizer, recognizer was not active.', err)
         }
       };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [startSequence, poseIncrementer])
 
   return (
@@ -99,7 +89,5 @@ function VoiceDetection(props) {
       </div>
     </div>
   )
-
-
 }
 export default VoiceDetection;

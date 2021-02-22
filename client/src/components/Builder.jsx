@@ -66,8 +66,8 @@ export default function Builder(props) {
 
     <div id="transition" className="animate__animated animate__fadeIn">
       <div className="changing">
-      <img src='/transitions/status.png' alt="transition"className="rotate"/>
-      <h1>Building your session</h1>
+        <img src='/transitions/status.png' alt="transition"className="rotate"/>
+        <h1>Building Your Reflexion</h1>
       </div>
     </div>
   )
