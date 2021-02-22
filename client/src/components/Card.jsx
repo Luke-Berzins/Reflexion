@@ -10,7 +10,6 @@ function Card (props) {
     //   target.style.display = "none";
     // }, 0);
   }
-
   const dragOver = e => {
     e.stopPropagation();
   }

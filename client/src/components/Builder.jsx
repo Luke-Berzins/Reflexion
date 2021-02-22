@@ -6,7 +6,6 @@ import "./Builder.scss"
 import { useState } from "react";
 import { useCookies } from 'react-cookie';
 
-
 export default function Builder(props) {
   const [cookies, setCookie] = useCookies(['name', 'id']);
   const [state, setState] = useState({

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { getUser } from "../helpers/selectors";
 
+
 export default function useAuthentication(login, register) {
   const [state, setState] = useState({
     user: null

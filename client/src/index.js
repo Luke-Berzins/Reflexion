@@ -8,7 +8,6 @@ import { CookiesProvider } from 'react-cookie';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
 ReactDOM.render(
   <CookiesProvider>
       <App />

@@ -120,5 +120,4 @@ export default function Session(props) {
             </div></> }
       </div>
     );
-
 }

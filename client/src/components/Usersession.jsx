@@ -11,6 +11,7 @@ const deleteSession = sequenceID => {
   })
 }
 
+
 export default function Usersession(props) {
   const [state, setState] = useState({
     transition: null

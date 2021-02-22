@@ -42,9 +42,7 @@ export default function Register(props) {
         console.log(error);
       });
 
-
   }
-
 
   return (
     <div>
