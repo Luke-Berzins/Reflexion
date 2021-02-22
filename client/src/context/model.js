@@ -4,7 +4,7 @@ import React, { useState, createContext, useEffect, useContext } from "react";
 
 const ModelContext = createContext();
 
-const URL = "http://localhost:8000/model/";
+const URL = "http://localhost:3002/model/";
 
 async function createModel() {
   const checkpointURL = URL + "model.json"; // model topology
