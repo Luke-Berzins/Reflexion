@@ -66,6 +66,9 @@ function VideoPlayer(props) {
 //   type: "START"
 // });
 
+const debounceInterval = 5000;
+window.lastRun = 0;
+
 export default function Session(props) {
 
   const [state, setState] = useState({
@@ -87,20 +90,23 @@ export default function Session(props) {
     });
   }, []);
 
-  const poseIncrementer = React.useCallback((direction) => {
-    setState((prev) => {
-      if (prev.pageView === false) {
-        return prev;
-      }
-      let nextPoseIndex = prev.poseIndex;
+  const poseIncrementer = (direction) => {
 
+    if(window.lastRun + debounceInterval > Date.now()) {
+      console.log('Hey the debounce did a thing!');
+      return;
+    }
+
+    setState((prev) => {
+      let nextPoseIndex = prev.poseIndex;
       if((direction > 0 && prev.poseIndex < prev.poseArray.length - 1) || (direction < 0 && prev.poseIndex > 0)) {
         nextPoseIndex += direction;
+        console.log('Direction:', direction)
       }
-
       return ({...prev, poseIndex: nextPoseIndex})
     })
-  }, []);
+    window.lastRun = Date.now();
+  };
 
 
 
@@ -129,7 +135,7 @@ export default function Session(props) {
     return (
       <div id="session" onload="setList(id)" className="animate__animated animate__fadeIn">
         <div className="voice-detection">
-          <VoiceDetection startSequence={ startSequence } poseIncrementer={ poseIncrementer } started={state.pageView}/>
+        { state.pageView ? <VoiceDetection poseIncrementer={ poseIncrementer } button={true}/> : <VoiceDetection startSequence={ startSequence } button={false} /> }
         </div>
         { state.pageView && <>
           <VideoPlayer video={currentPose.video} delay={2500} />
