@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export function registerUser(user) {
   axios.post('/api/users', {
       email: user.email,

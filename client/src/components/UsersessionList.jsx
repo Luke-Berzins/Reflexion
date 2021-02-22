@@ -9,7 +9,6 @@ export default function Yoursessions(props) {
     yoursessions: [],
   })
 
-
   useEffect(() => {
     Promise.all([
       axios.get("/api/sequences/personal", {

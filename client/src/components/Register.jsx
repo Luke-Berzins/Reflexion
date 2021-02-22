@@ -41,8 +41,6 @@ export default function Register(props) {
       .catch(function (error) {
         console.log(error);
       });
-
-
   }
 
   return (

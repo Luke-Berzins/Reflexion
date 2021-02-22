@@ -79,7 +79,6 @@ function VoiceDetection(props) {
       };
     }, [startSequence, poseIncrementer])
 
-
   return (
     <div className="seq-nav">
       <div className='seq-nav-buttons'>
