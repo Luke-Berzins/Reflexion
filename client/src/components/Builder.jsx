@@ -5,9 +5,10 @@ import axios from "axios";
 import "./Builder.scss"
 import { useState } from "react";
 import { useCookies } from 'react-cookie';
-
+import { useHistory } from "react-router-dom";
 
 export default function Builder(props) {
+  const history = useHistory()
   const [cookies, setCookie] = useCookies(['name', 'id']);
   const [state, setState] = useState({
     selectedPose: {},
@@ -39,7 +40,7 @@ export default function Builder(props) {
       })
       setTimeout(() => {
         console.log("transitioning...")
-        window.location = `/session/${seqID}`
+        history.push(`/session/${seqID}`) 
       }, 4000)
 
     })
