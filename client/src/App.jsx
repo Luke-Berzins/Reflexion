@@ -27,6 +27,7 @@ function App() {
     currentSession: null
   })
 
+  
   useEffect(() => {
     Promise.all([
       axios.get("/api/poses"),
