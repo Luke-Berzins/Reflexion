@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react"
+import {useHistory} from "react-router-dom"
 import axios from "axios"
 import "./Usersession.scss"
 
@@ -12,6 +13,7 @@ const deleteSession = sequenceID => {
 }
 
 export default function Usersession(props) {
+  const history = useHistory()
   const [state, setState] = useState({
     transition: null
   })
@@ -35,7 +37,7 @@ export default function Usersession(props) {
         <h5>{props.name}</h5>
         <h5 style={{color:'blue'}}>Ready to Start?</h5>
         <div className='buttons'>
-        <button className="btn btn-info" onClick={() => window.location=`/session/${props.id}`}>Start</button>&nbsp;&nbsp;&nbsp;
+        <button className="btn btn-info" onClick={() => history.push(`/session/${props.id}`)}>Start</button>&nbsp;&nbsp;&nbsp;
         <button className="btn btn-warning" type='submit' onClick={() => setState({transition: null})}>Cancel</button>
         </div>
       </div>
