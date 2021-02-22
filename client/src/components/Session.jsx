@@ -81,8 +81,8 @@ export default function Session(props) {
 
   const videoConstraints = {
     facingMode: "user",
-    width:  { min: 750 },
-    height: { min: 480 },
+    width:  { min: 1280 },
+    height: { min: 720 },
   };
 
   const currentPose = state.poseArray[state.poseIndex];
