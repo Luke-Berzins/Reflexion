@@ -4,11 +4,7 @@ import { useEffect, useState } from 'react';
 import './VoiceDetection.scss'
 
 
-<<<<<<< HEAD
-const URL = "http://localhost:3002/model/";
-=======
     const URL = "http://localhost:3002/model/";
->>>>>>> 3d5e180b4c2596d70f22f628e721c082986d5c09
 
 async function createModel() {
     const checkpointURL = URL + "model.json"; // model topology
