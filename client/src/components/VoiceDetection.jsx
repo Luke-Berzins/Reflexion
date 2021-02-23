@@ -4,23 +4,23 @@ import { useEffect, useState } from 'react';
 import './VoiceDetection.scss'
 
 
-    const URL = "http://localhost:8000/model/";
+const URL = "http://localhost:3002/model/";
 
-    async function createModel() {
-        const checkpointURL = URL + "model.json"; // model topology
-        const metadataURL = URL + "metadata.json"; // model metadata
+async function createModel() {
+    const checkpointURL = URL + "model.json"; // model topology
+    const metadataURL = URL + "metadata.json"; // model metadata
 
-        const recognizer = speechCommands.create(
-            "BROWSER_FFT", // fourier transform type, not useful to change
-            undefined, // speech commands vocabulary feature, not useful for your models
-            checkpointURL,
-            metadataURL);
+    const recognizer = speechCommands.create(
+        "BROWSER_FFT", // fourier transform type, not useful to change
+        undefined, // speech commands vocabulary feature, not useful for your models
+        checkpointURL,
+        metadataURL);
 
-        // check that model and metadata are loaded via HTTPS requests.
-        await recognizer.ensureModelLoaded();
+    // check that model and metadata are loaded via HTTPS requests.
+    await recognizer.ensureModelLoaded();
 
-        return recognizer;
-    }
+    return recognizer;
+}
 
 function VoiceDetection(props) {
 
@@ -30,6 +30,7 @@ function VoiceDetection(props) {
     let recognizer;
 
       createModel().then((model) => {
+        console.log('Model created');
         recognizer = model;
 
         recognizer.listen(result => {
