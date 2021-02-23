@@ -6,16 +6,17 @@ We hatched this idea to address a problem: many people with a new or long-standi
 
 ## Final Product :
 ### Homepage 
-!["Home page"]()
+!["Home page"](https://github.com/Luke-Berzins/Reflexion/blob/master/public/images/home.png?raw=true)
 
 ### Builder page 
-!["Builder page"]()
+!["Builder page1"](https://github.com/Luke-Berzins/Reflexion/blob/master/public/images/builder.png?raw=true)
+!["Builder page2"](https://github.com/Luke-Berzins/Reflexion/blob/master/public/images/builder2.png?raw=true)
 
 ### Session page 
-!["Session page"]()
+!["Session page"](https://github.com/Luke-Berzins/Reflexion/blob/master/public/images/session.png?raw=true)
 
 ### YourSessions page 
-!["YourSessions page"]()
+!["YourSessions page"](https://github.com/Luke-Berzins/Reflexion/blob/master/public/images/Yoursessions.png?raw=true)
 
 ## Technology
 Multiple-page application built with modern React practices such as hooks and functional components and teachable machine learning technology.
