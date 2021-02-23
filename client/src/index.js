@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
 import reportWebVitals from './reportWebVitals';
-import { CookiesProvider } from 'react-cookie';
+import { Cookies, CookiesProvider } from 'react-cookie';
 import {
   BrowserRouter as Router,
   Route
@@ -12,6 +12,7 @@ import Nav from './components/Nav';
 
 import Login from './components/Login';
 import Register from './components/Register';
+import Presentation from './components/Presentation';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,6 +25,9 @@ ReactDOM.render(
         </Route>
         <Route path="/register">
           <Register />
+        </Route>
+        <Route path="/presentation">
+          <Presentation />
         </Route>
         <Route path="/">
           <App />
