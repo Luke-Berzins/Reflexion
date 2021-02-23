@@ -23,9 +23,9 @@ export default function Nav(props) {
             <Link className="navbar-brand js-scroll-trigger" to="/"><img src={logo} alt="Home"></img></Link>
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/builder">Builder</Link></li>
-                <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/about">About</Link></li>
-                <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/yoursessions">Your Sessions</Link></li>
+                <li className="nav-itemt"><Link className="nav-link js-scroll-trigger" to="/about">About</Link></li>
+                <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/builder">New Session</Link></li>
+                <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/yoursessions">My Sessions</Link></li>
                 <div className="navbar-nav ml-auto">
                 <li className="nav-item" className="nav-link js-scroll-trigger text-secondary"><b>Hello <u>{cookies.name}</u></b></li>
                     <li className="nav-item nav-link js-scroll-trigger" onClick={removeCook}>Logout</li>
