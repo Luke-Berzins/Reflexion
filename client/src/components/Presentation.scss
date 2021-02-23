@@ -1,0 +1,31 @@
+#presentation {
+  margin: 10rem;
+  position: center;
+  display: flex;
+  flex-direction: column;
+  #us {
+    padding-left: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .card {
+      width: 50%
+    }
+  }
+}
+.tech {
+  display: flex;
+  justify-content: center;
+}
+.techImage {
+  width: 50%
+}
+
+.card-img-top {
+  width: 100%;
+}
+
+.breakline {
+  height: 900px;
+}
