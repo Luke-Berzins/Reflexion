@@ -34,5 +34,5 @@ Back-End: Node, Express, PostgreSQL
 - Node-postgres
 - Tensorflow.js
 
-#Planning 
+# Planning 
 https://www.notion.so/Reflexion-Planning-1f21492f62fa4950b2240fce6df46f58
