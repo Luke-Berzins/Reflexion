@@ -32,13 +32,7 @@ Back-End: Node, Express, PostgreSQL
 - Node.js
 - Express
 - Node-postgres
+- Tensorflow.js
 
-## Setup
-
-Install dependencies with `npm install`.
-
-## Running Webpack Development Server
-
-```sh
-npm start
-```
+#Planning 
+https://www.notion.so/Reflexion-Planning-1f21492f62fa4950b2240fce6df46f58
