@@ -18,8 +18,6 @@ We hatched this idea to address a problem: many people with a new or long-standi
 ### YourSessions page 
 !["YourSessions page"](https://github.com/Luke-Berzins/Reflexion/blob/master/public/images/Yoursessions.png?raw=true)
 
-x-special/nautilus-clipboard
-copy
 file:///home/mahsa/Desktop/1111.png
 ![1111](https://user-images.githubusercontent.com/70541591/127168355-060ba6c3-f768-4938-b8ef-be09dec8779f.png)
 
